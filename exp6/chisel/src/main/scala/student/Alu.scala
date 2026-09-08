@@ -81,14 +81,14 @@ class Alu extends Module {
   val sr_result = sr64_result(30, 0).pad(32)
 
   // final result mux
-  io.alu_result := (Fill(32, op_add | op_sub) & add_sub_result)
-    | (Fill(32, op_slt)  & slt_result)
-    | (Fill(32, op_sltu) & sltu_result)
-    | (Fill(32, op_and)  & and_result)
-    | (Fill(32, op_nor)  & nor_result)
-    | (Fill(32, op_or)   & or_result)
-    | (Fill(32, op_xor)  & xor_result)
-    | (Fill(32, op_lui)  & lui_result)
-    | (Fill(32, op_sll)  & sll_result)
-    | (Fill(32, op_srl | op_sra) & sr_result)
+  io.alu_result := (Fill(32, op_add | op_sub) & add_sub_result) |
+    (Fill(32, op_slt)  & slt_result) |
+    (Fill(32, op_sltu) & sltu_result) |
+    (Fill(32, op_and)  & and_result) |
+    (Fill(32, op_nor)  & nor_result) |
+    (Fill(32, op_or)   & or_result) |
+    (Fill(32, op_xor)  & xor_result) |
+    (Fill(32, op_lui)  & lui_result) |
+    (Fill(32, op_sll)  & sll_result) |
+    (Fill(32, op_srl | op_sra) & sr_result)
 }

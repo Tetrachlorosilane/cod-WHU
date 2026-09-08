@@ -44,9 +44,9 @@ class MinicpuTop extends Module {
   //   reg valid; always @(posedge clk) if (reset) valid <= 1'b0; else valid <= 1'b1;
   // （原 Verilog 中这两个 reg 无初值，仿真起始为 X；Chisel 版给确定性初值。）
   // --------------------------------------------------------------------------
-  val reset = RegNext(!io.resetn, true.B)
+  val reset_r = RegNext(!io.resetn, true.B)
   val valid = RegInit(false.B)
-  when(reset) {
+  when(reset_r) {
     valid := false.B
   }.otherwise {
     valid := true.B
@@ -219,7 +219,7 @@ class MinicpuTop extends Module {
   // --------------------------------------------------------------------------
   // pc 更新（原 Verilog 中位于文件前部；Chisel 需先声明 nextpc，故移到这里）
   // --------------------------------------------------------------------------
-  when(reset) {
+  when(reset_r) {
     pc := 0x1bfffffcL.U(32.W)
   }.otherwise {
     pc := nextpc

@@ -1,3 +1,6 @@
+//| mill-version: 1.0.4
+//| mill-jvm-version: 17
+
 // SPDX-License-Identifier: BSD-3-Clause
 // ============================================================================
 // exp23（实践任务23：CPU 中添加 CACOP 指令）的 Chisel 构建文件
@@ -10,36 +13,42 @@
 // 若使用 Mill 0.11.x：改名为 build.sc、mill-version 改为 0.11.13，内容不变。
 // ============================================================================
 
-//| mill-version: 1.0.4
-//| mill-jvm-version: 17
-
 package build
 
 import mill._
 import scalalib._
 
 object chisel extends ScalaModule {
+  // build.mill 与本模块的 src/ 同级；Mill 默认按 <模块名>/ 推断 moduleDir，
+  // 故显式上移一级（见 https://mill-build.org/mill/1.0.x/fundamentals/modules.html#_moduledir）
+  def moduleDir = super.moduleDir / os.up
+
   def scalaVersion = "2.13.12"
 
-  /** taskvscode/chisel-common（从 exp23/chisel 往上两级） */
-  def commonRoot = millSourcePath / os.up / os.up / "chisel-common"
+  /** taskvscode/chisel-common（从 expN/chisel 往上两级） */
+  def commonRoot = moduleDir / os.up / os.up / "chisel-common"
 
-  def ivyDeps = Agg(
-    ivy"edu.berkeley.cs::chisel3:3.5.6"
+  def mvnDeps = Seq(
+    mvn"edu.berkeley.cs::chisel3:3.5.6"
   )
 
-  def sources = T.sources(
-    millSourcePath / "src" / "main" / "scala",
+  // Mill 1.x 用 Task.Sources（旧版 T.sources 在 1.x 已不存在，且沙箱要求显式声明来源）
+  def sources = Task.Sources(
+    moduleDir / "src" / "main" / "scala",
     commonRoot / "src" / "main" / "scala"
   )
 
   object test extends ScalaTests with TestModule.ScalaTest {
-    def ivyDeps = Agg(
-      ivy"edu.berkeley.cs::chiseltest:0.6.2",
-      ivy"org.scalatest::scalatest:3.2.19"
+    // 与主模块同根（默认会被推断成 <chisel>/<chisel>/test）
+    def moduleDir = chisel.moduleDir
+
+    def mvnDeps = Seq(
+      mvn"edu.berkeley.cs::chiseltest:0.6.2",
+      mvn"org.scalatest::scalatest:3.2.19"
     )
-    def sources = T.sources(
-      millSourcePath / os.up / "src" / "test" / "scala",
+
+    def sources = Task.Sources(
+      moduleDir / "src" / "test" / "scala",
       commonRoot / "src" / "test" / "scala"
     )
   }

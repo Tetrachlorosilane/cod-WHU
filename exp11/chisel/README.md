@@ -29,12 +29,14 @@ nav_exclude: true
 - **教学意图**：从零实现 —— 只给接口骨架 + **10 处 `TODO(实现 n/10)`**，内部逻辑留空（`???`）。
 - **判据复现**：TraceHarness：golden_trace 逐条比对 + num_data 监视。
 - **共享依赖**：`../../chisel-common/`（环境库，见 `../../CHISEL-CONVENTIONS.md` §2.2）。
-- **⚠️ 未实测**：本目录 Chisel 代码未经编译/仿真，逐行对照见 `MAPPING.md`；运行方式见 §3。
+- **✅ 编译验证**：`chisel.compile` / `chisel.test.compile` 已实测通过（未仿真）；逐行对照见 `MAPPING.md`；运行方式见 §3。
 
-## ⚠️ 未实测声明
+## ✅ 编译验证（未仿真）
 
-> 本目录的 Chisel 代码为**静态交付**：未在 JDK/Mill/Chisel 环境中编译或仿真过。
-> 如需实际运行：安装 JDK 17 + Mill，在本目录执行 `./mill chisel.test`。
+> 本目录的 Chisel 代码已用 **Mill 1.0.4 + JDK 17 + Chisel 3.5.6 + Scala 2.13.12** 实测通过
+> `./mill chisel.compile` 与 `./mill chisel.test.compile`（**尚未跑仿真**）。
+> 复查报告：仓库根 `verify/REPORT.md`。跑仿真：`./mill chisel.test`
+> （exp6~exp23 需先解包运行件：`node ../../../cod-WHU.github.io/tools/unpack-assets.mjs`）。
 
 ## 1. 本实验要求（原书 6.1.2）
 
@@ -95,5 +97,5 @@ chisel/
 - [ ] 学生模块 TODO 标记数为 **10**（类型：`TODO(实现 n/10)`），与 `MAPPING.md` 记载一致。
 - [ ] 顶层端口与 `../code/` 下原 Verilog 的例化端口一一对应（`MAPPING.md` 已列表）。
 - [ ] 判据复现方式已写明（见 §4），且与原文 testbench 的检查逻辑一致。
-- [ ] 未实测声明已保留（本文件 §⚠️ 与 `MAPPING.md`）。
+- [ ] 编译验证声明已保留（本文件 §✅ 与 `MAPPING.md`）。
 - [ ] 静态检查通过：`node ../../../tools/chisel_static_check.mjs exp11`。

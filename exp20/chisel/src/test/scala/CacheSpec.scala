@@ -13,6 +13,7 @@
 
 package exp20.test
 
+import chisel3._
 import chiseltest._
 import org.scalatest.flatspec.AnyFlatSpec
 import exp20.soc._

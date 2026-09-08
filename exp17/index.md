@@ -348,7 +348,7 @@ class TlbTop(
 | Chisel 版判据 | TlbSpec：16 写 / 16 读 / 26 查 → ----PASS!!! |
 | 运行方式 | `cd chisel && ./mill chisel.test`（需 JDK 17 + Mill） |
 | 运行所需运行件 | 本实验**不需要**外部运行件（exp5 用内嵌常量表；exp17/exp20 为模块级环境） |
-| ⚠️ 未实测 | Chisel 代码为静态交付，未编译/仿真；逐行对照见 `chisel/MAPPING.md` |
+| ✅ 编译验证 | `chisel.compile` / `chisel.test.compile` 已用 Mill 1.0.4 + JDK 17 + Chisel 3.5.6 实测通过（**未跑仿真**）；复查报告见 [编译复查报告](../编译复查报告.md) |
 
 ## 参考
 

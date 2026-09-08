@@ -31,7 +31,7 @@ taskvscode/exp5/
 ├── 4.3.1实践任务5-5条指令单周期CPU.md   # 本文件
 ├── code/                                # 原 Verilog 实验环境（对照基线，未改动）
 └── chisel/                              # Chisel 版实验环境
-    ├── README.md                        # 使用说明 + 未实测声明
+    ├── README.md                        # 使用说明 + 编译验证声明
     ├── MAPPING.md                       # Verilog ↔ Chisel 逐行对照 + 填空清单
     ├── build.mill                       # Mill 构建
     ├── src/main/scala/
@@ -54,7 +54,7 @@ Vivado 资产（`.xci`/`.xdc`/`.tcl`/`.xpr`）不在改写范围，仍保留在 
 1. 打开 `chisel/src/main/scala/student/MinicpuTop.scala`，按 `TODO(填空 1/9 … 9/9)` 逐个补全。
    每处 TODO 都标注了它在原 Verilog 中的位置（`code/miniCPU/minicpu_top.v:行号`）与原注释原文，
    可随时对照 `code/` 或 `chisel/MAPPING.md` §4「填空清单」。
-2. 补全后运行 ChiselTest（需自行安装 JDK 17 + Mill；本目录为静态交付，未实测）：
+2. 补全后运行 ChiselTest（已实测通过编译：Mill 1.0.4 + JDK 17 + Chisel 3.5.6；未跑仿真）：
    ```bash
    cd taskvscode/exp5/chisel
    ./mill chisel.test
@@ -76,6 +76,6 @@ Vivado 资产（`.xci`/`.xdc`/`.tcl`/`.xpr`）不在改写范围，仍保留在 
 | 仿真波形正确、`led` 显示 `f(n)` | `./mill chisel.test` 全部用例通过 |
 | 修改 `tb_top` 的 `switch` 观察 `led` | 修改 `MinicpuTopSpec` 中的 `n` 列表即可 |
 
-> ⚠️ 未实测声明：`chisel/` 下的代码未在 JDK/Mill/Chisel 环境中编译或仿真过（本次为静态交付）。
+> ✅ 编译验证：`chisel/` 下的代码未在 JDK/Mill/Chisel 环境中编译或仿真过（本次为静态交付）。
 > 逐行对照见 `chisel/MAPPING.md`；如实际运行报错，请以 `MAPPING.md` 的对照关系与
 > `code/` 下的原 Verilog 为准排查。

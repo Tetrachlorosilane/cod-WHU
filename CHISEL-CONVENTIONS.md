@@ -24,7 +24,7 @@ nav_order: 30
 ## 本文速览（TL;DR）
 
 - **一句话目标**：实验环境**全量**改 Chisel，"学生要做的那部分"**意图原样保留**（填空留空 / 找错留错 / 从零实现留骨架）。
-- **交付形态**：纯静态——不装 JDK/Mill、不编译不仿真；每份 `chisel/README.md` 带未实测声明，
+- **交付形态**：代码已用 Mill 1.0.4 + JDK 17 + Chisel 3.5.6 编译验证（未仿真）；每份 `chisel/README.md` 带编译验证声明，
   `MAPPING.md` 提供逐行对照供人工复核。
 - **布局**：exp5/exp6 自包含；exp7~exp23 = 每实验自有学生代码/薄 SoC 封装/测试/文档 + 共享环境库 `chisel-common/`。
 - **验收**：`node tools/chisel_static_check.mjs`（19 实验、20 项检查、0 失败）。
@@ -41,7 +41,7 @@ nav_order: 30
 ## 1. 交付方式（重要）
 
 - **纯静态交付**：不安装 JDK / Mill，不编译、不仿真。Chisel 代码按"可编译子集"手写，
-  每个实验的 `chisel/README.md` 必须带**未实测声明**（见 §7）。
+  每个实验的 `chisel/README.md` 必须带**编译验证声明**（见 §7）。
 - 不改动 `output/`、`CPU设计实战：LoongArch版/`、`raw_book3/`、`verilog4agent/`、`chisel4agent/`
   （保真溯源基线）。
 - `taskvscode/expN/code/`（原 Verilog 副本）**保持不动**，作为对照基线；Chisel 版写在同级的 `chisel/`。
@@ -90,12 +90,27 @@ taskvscode/expN/                                   # N = 7 … 23
 
 ## 3. 目标版本与 API 子集
 
-| 项 | 取值 |
+| 项 | 取值（**已实测**，见 `verify/REPORT.md`） |
 |---|---|
-| 语言 | Scala 2.13.x |
-| 硬件库 | Chisel 3.5.x（`import chisel3._`） |
-| 测试 | ChiselTest 0.6.x（`import chiseltest._`），treadle 后端（纯 JVM，无需 Verilator） |
-| 构建 | Mill 0.11.x（`build.mill`） |
+| 语言 | Scala 2.13.12 |
+| 硬件库 | Chisel 3.5.6（`import chisel3._`） |
+| 测试 | ChiselTest 0.6.2（`import chiseltest._`）+ ScalaTest 3.2.19，treadle 后端（纯 JVM，无需 Verilator） |
+| 构建 | **Mill 1.0.4**（`build.mill`）+ `mill-jvm-version: 17` |
+| 编译状态 | 19/19 实验 `chisel.compile` 与 `chisel.test.compile` 全部通过；**未跑仿真** |
+
+### 3.1 Mill 1.x 的构建写法（实测踩坑后固定）
+
+```scala
+//| mill-version: 1.0.4      // ← 必须位于文件**最开头**（前面有注释会报 Invalid YAML header）
+//| mill-jvm-version: 17
+
+object chisel extends ScalaModule {
+  def moduleDir = super.moduleDir / os.up   // build.mill 与 src/ 同级；1.x 用 moduleDir（非 millSourcePath）
+  def scalaVersion = "2.13.12"
+  def mvnDeps = Seq(mvn"edu.berkeley.cs::chisel3:3.5.6")   // 1.x 用 mvnDeps（非 ivyDeps）+ mvn"..."（非 ivy"..."）
+  def sources = Task.Sources(moduleDir / "src" / "main" / "scala")  // 1.x 用 Task.Sources（非 T.sources）
+}
+```
 
 **只允许使用下列稳定 API**（避免版本漂移导致编译失败）：
 `Module` / `IO` / `Bundle` / `UInt` / `SInt` / `Bool` / `Vec` / `Wire` / `Reg` / `RegInit` / `RegNext` /
@@ -104,6 +119,11 @@ taskvscode/expN/                                   # N = 7 … 23
 
 **禁止**：`chisel3.util.experimental.*`、`ChiselEnum`、`circt` 相关 API、`import chisel3.iotesters._`、
 以及任何依赖具体 Chisel 6/7 语义的写法。若确需使用，必须在 `MAPPING.md` 中显式说明替代方案。
+
+> 实测要点（详见 `verify/REPORT.md` §3）：
+> - `MuxLookup(key, default, mapping)` 在 Chisel 3.5 是**单参数列表**，不是柯里化 `MuxLookup(k, d)(m)`。
+> - 学生模块里不要写 `val reset = ...`（`Module.reset` 是 final 成员），本项目统一用 `reset_r`。
+> - 测试文件若直接写 `0.U` / `false.B`，必须 `import chisel3._`。
 
 ## 4. 命名映射规则
 
@@ -190,11 +210,13 @@ taskvscode/expN/                                   # N = 7 … 23
 
 `.xci` / `.xpr` / `.xdc` / `.tcl` 等 Vivado 工程资产不改写，在 `MAPPING.md` 中列为"不适用"。
 
-## 7. 未实测声明（每个 chisel/README.md 必须包含）
+## 7. 编译验证声明（每个 chisel/README.md 必须包含）
 
-> ⚠️ 本目录的 Chisel 代码为**静态交付**：未在 JDK/Mill/Chisel 环境中编译或仿真过。
-> 代码按 §3 的 API 子集手写，`MAPPING.md` 提供逐行对照以便人工复核。
-> 如需实际运行，请自行安装 JDK 17 + Mill，并在 `chisel/` 下执行 `./mill chisel.test`。
+> ✅ 本目录的 Chisel 代码已用 **Mill 1.0.4 + JDK 17 + Chisel 3.5.6 + Scala 2.13.12** 实测通过
+> `./mill chisel.compile`（主代码）与 `./mill chisel.test.compile`（测试代码）；**尚未跑仿真**。
+> 复查报告与逐实验结果见仓库根 `verify/REPORT.md`。
+> 跑仿真：`cd chisel && ./mill chisel.test`（exp6~exp23 需先解包运行件：
+> `node ../../../cod-WHU.github.io/tools/unpack-assets.mjs`）。
 
 ## 8. 静态验收清单（每个实验）
 
@@ -202,7 +224,7 @@ taskvscode/expN/                                   # N = 7 … 23
 2. 学生部分保留原意图，每处带统一 `TODO` 标记；exp5/exp6 另有 `solution/`。
 3. 新增文件均为 UTF-8、非空；括号/引号配平；无未闭合注释。
 4. `taskvscode/expN/<原任务说明>.md` 已改写，含：任务目标、Chisel 文件清单、映射摘要、
-   意图保留说明、验证方式、未实测声明。
+   意图保留说明、验证方式、编译验证声明。
 5. `MAPPING.md` 覆盖该实验全部模块与关键信号。
 6. 保真目录（`output/` 等）文件数与字节数未变。
 
@@ -303,9 +325,9 @@ taskvscode/expN/                                   # N = 7 … 23
 ## 13. 整体自检（交付级 Agent 快速检查点）
 
 - [ ] `taskvscode/exp5~exp23` 每个实验都有 `chisel/{README.md,MAPPING.md,build.mill,src/}`。
-- [ ] 每个 `chisel/README.md` 带 YAML front matter + 速览 + 自检清单 + 未实测声明。
+- [ ] 每个 `chisel/README.md` 带 YAML front matter + 速览 + 自检清单 + 编译验证声明。
 - [ ] 每个 `chisel/MAPPING.md` 带 front matter + 文件级/端口级对照 + 自检清单。
 - [ ] 学生模块 TODO 标记数与 `MAPPING.md` 记载一致（9 填空 / 7 找错 / 218 实现）。
-- [ ] 19 份任务说明 md 已就地改写（含「Chisel 版」与「未实测声明」）。
+- [ ] 19 份任务说明 md 已就地改写（含「Chisel 版」与「编译验证声明」）。
 - [ ] `code/` 与 `output/`、`CPU设计实战：LoongArch版/`、`raw_book3/`、`verilog4agent/`、`chisel4agent/` 未改动。
 - [ ] `node tools/chisel_static_check.mjs` 全绿。

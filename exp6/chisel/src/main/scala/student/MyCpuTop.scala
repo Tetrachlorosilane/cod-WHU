@@ -44,9 +44,9 @@ class MyCpuTop extends Module {
   })
 
   // reg reset; always @(posedge clk) reset <= ~resetn;
-  val reset = RegNext(!io.resetn, true.B)
+  val reset_r = RegNext(!io.resetn, true.B)
   val valid = RegInit(false.B)
-  when(reset) {
+  when(reset_r) {
     valid := false.B
   }.otherwise {
     valid := true.B
@@ -216,7 +216,7 @@ class MyCpuTop extends Module {
   io.debug_wb_rf_wdata := final_result
 
   // ---------------- pc 更新 ----------------
-  when(reset) {
+  when(reset_r) {
     pc := 0x1bfffffcL.U(32.W)
   }.otherwise {
     pc := nextpc

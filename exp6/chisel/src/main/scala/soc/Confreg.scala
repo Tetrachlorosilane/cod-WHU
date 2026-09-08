@@ -328,7 +328,7 @@ class Confreg(simulation: Boolean = false) extends Module {
     state := next_state
   }
 
-  next_state := MuxLookup(state, 0.U(3.W))(Seq(
+  next_state := MuxLookup(state, 0.U(3.W), Seq(
     0.U -> Mux(key_sample && !io.btn_key_row.andR, 1.U(3.W), 0.U(3.W)),
     1.U -> Mux(!io.btn_key_row.andR, 7.U(3.W), 2.U(3.W)),
     2.U -> Mux(!io.btn_key_row.andR, 7.U(3.W), 3.U(3.W)),
@@ -337,7 +337,7 @@ class Confreg(simulation: Boolean = false) extends Module {
     7.U -> Mux(key_sample && io.btn_key_row.andR, 0.U(3.W), 7.U(3.W))
   ))
 
-  io.btn_key_col := MuxLookup(state, 0.U(4.W))(Seq(
+  io.btn_key_col := MuxLookup(state, 0.U(4.W), Seq(
     0.U -> 0x0.U(4.W),
     1.U -> 0xe.U(4.W),
     2.U -> 0xd.U(4.W),
@@ -346,7 +346,7 @@ class Confreg(simulation: Boolean = false) extends Module {
   ))
 
   val btn_key_tmp = Wire(UInt(16.W))
-  btn_key_tmp := MuxLookup(Cat(state, io.btn_key_row), 0.U(16.W))(Seq(
+  btn_key_tmp := MuxLookup(Cat(state, io.btn_key_row), 0.U(16.W), Seq(
     Cat(1.U(3.W), 0xe.U(4.W)) -> 0x0001.U(16.W),
     Cat(1.U(3.W), 0xd.U(4.W)) -> 0x0010.U(16.W),
     Cat(1.U(3.W), 0xb.U(4.W)) -> 0x0100.U(16.W),

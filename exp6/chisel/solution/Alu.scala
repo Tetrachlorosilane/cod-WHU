@@ -56,14 +56,14 @@ class Alu extends Module {
   val sr64_result = Cat(Fill(32, op_sra & io.alu_src1(31)), io.alu_src1) >> io.alu_src2(4, 0) // 修正 #3
   val sr_result   = sr64_result(31, 0)                // 修正 #4
 
-  io.alu_result := (Fill(32, op_add | op_sub) & add_sub_result)
-    | (Fill(32, op_slt)  & slt_result)
-    | (Fill(32, op_sltu) & sltu_result)
-    | (Fill(32, op_and)  & and_result)
-    | (Fill(32, op_nor)  & nor_result)
-    | (Fill(32, op_or)   & or_result)
-    | (Fill(32, op_xor)  & xor_result)
-    | (Fill(32, op_lui)  & lui_result)
-    | (Fill(32, op_sll)  & sll_result)
-    | (Fill(32, op_srl | op_sra) & sr_result)
+  io.alu_result := (Fill(32, op_add | op_sub) & add_sub_result) |
+    (Fill(32, op_slt)  & slt_result) |
+    (Fill(32, op_sltu) & sltu_result) |
+    (Fill(32, op_and)  & and_result) |
+    (Fill(32, op_nor)  & nor_result) |
+    (Fill(32, op_or)   & or_result) |
+    (Fill(32, op_xor)  & xor_result) |
+    (Fill(32, op_lui)  & lui_result) |
+    (Fill(32, op_sll)  & sll_result) |
+    (Fill(32, op_srl | op_sra) & sr_result)
 }

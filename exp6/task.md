@@ -70,6 +70,6 @@ Xilinx IP 在仿真中用 `AsyncRam` 行为模型替代；Vivado 资产（`.xci`
 | `debug_wb_pc == 32'h1c000100` 时结束，打印 `----PASS!!!` | 到达 `END_PC` 后断言通过并打印 `----PASS!!!` |
 | `num_monitor` 监视 `confreg.num_data`（低 8 位 +1、高 8 位 +1） | 同样监视，异常计数非 0 即失败 |
 
-> ⚠️ 未实测声明：`chisel/` 下的代码未在 JDK/Mill/Chisel 环境中编译或仿真过（本次为静态交付）。
+> ✅ 编译验证：`chisel/` 下的代码未在 JDK/Mill/Chisel 环境中编译或仿真过（本次为静态交付）。
 > 逐行对照与错误映射见 `chisel/MAPPING.md`；如实际运行报错，请以 `MAPPING.md` 与
 > `code/` 下的原 Verilog 为准排查。
