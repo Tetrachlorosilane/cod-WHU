@@ -2,14 +2,14 @@
 // ============================================================================
 // 学生模块（填空）：miniCPU 单周期 CPU，5 条指令
 //   对应原 Verilog：code/miniCPU/minicpu_top.v
-//   本实验（实践任务5）的教学意图 = 填空：
+//   本实验（实践任务5）的要求：填空：
 //   原 Verilog 中有 9 处空位（`assign x = ;` 与 regfile 实例化的空括号），
 //   Chisel 版同样保留 9 处空缺，用 `???` + TODO(填空) 标记。
 //   —— 未补全时 elaboration 会以 NotImplementedError 终止，等价于原 Verilog
 //      含空位时的语法错误：不补全就跑不起来。
 //   参考解见 ../solution/MinicpuTop.scala（不参与默认编译）。
 //
-// 与 Verilog 的两点差异（见 ../MAPPING.md）：
+// 与 Verilog 的两点差异：
 //   1. clk 端口 → Chisel 隐式 clock，不再是 IO；
 //   2. Chisel 要求「先声明后使用」，故 pc 的更新语句移到文件末尾，
 //      组合逻辑顺序做了等价重排（信号名与含义不变）。

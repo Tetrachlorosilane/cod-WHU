@@ -15,7 +15,7 @@
 // 地址端口 a 由 IP 定义为 5 位，实例化时传入 16 位的 inst_addr[17:2]，
 // 因此高 11 位被截断（本实验程序中地址恒落在 0..11，行为一致）。
 //
-// Chisel 替代方案（见 CHISEL-CONVENTIONS.md §6.2）：
+// Chisel 替代方案：
 //     用 RegInit(VecInit(常量表)) 实现「复位即有初值、异步读、同步写」的 RAM，
 //     与 single_port_ram + coe 初始化 + 非寄存输出 的行为等价，且不需要任何文件 I/O。
 

@@ -8,7 +8,7 @@
 //     always @*             if (!we) data_out = ram[address]; // 异步读
 //     initial $readmemb(".../func/obj/inst_ram.mif", async_ram.ram);
 //
-// Chisel 差异（见 ../MAPPING.md）：
+// Chisel 差异：
 //   1. Chisel 没有三态/Z，写周期读数据取 0（原为 Z；CPU 在写周期不会读数据）。
 //   2. 存储器初始化：原用 $readmemb 读 .mif；Chisel 版把内容作为构造参数 init 传入，
 //      由测试侧读取 .mif 文件（见 src/test/scala/MifLoader.scala），

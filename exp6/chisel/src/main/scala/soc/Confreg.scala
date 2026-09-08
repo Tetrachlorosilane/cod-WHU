@@ -4,10 +4,10 @@
 // 覆盖：cr0~cr7、led、led_rg0/1、数码管扫描、switch、按键消抖状态机、step 按键、
 //       timer、仿真标志（simu_flag/io_simu/open_trace/num_monitor）、虚拟串口。
 //
-// 与 Verilog 的差异（见 ../MAPPING.md）：
+// 与 Verilog 的差异：
 //   1. timer 原用独立的 timer_clk；本实验 `SIMU_USE_PLL=0 ⇒ timer_clk = cpu_clk`，
 //      故 Chisel 版把 timer 逻辑放在同一隐式时钟域，行为等价。
-//   2. 复位为同步复位，按 CHISEL-CONVENTIONS.md §4.3 手写 when(!resetn)。
+//   2. 复位为同步复位，手写 when(!resetn)。
 //   3. Verilog 的 case 语句用 VecInit + 索引等价实现。
 
 package exp6.soc

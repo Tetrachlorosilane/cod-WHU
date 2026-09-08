@@ -10,7 +10,7 @@
 //     end
 //
 // 复位为同步复位（原 always @(posedge clk) 内判断），故 Chisel 版手写同步复位，
-// 不使用 RegInit 的隐式复位（见 CHISEL-CONVENTIONS.md §4.3）。
+// 不使用 RegInit 的隐式复位。
 
 package exp5.soc
 

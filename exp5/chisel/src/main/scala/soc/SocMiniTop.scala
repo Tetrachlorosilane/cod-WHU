@@ -13,7 +13,7 @@
 //     assign led = ~conf_led;
 //
 // 时钟：Chisel 使用隐式 clock，等价于原 generate 的 speedup_simulation 分支
-//（clk_pll 不建模，见 CHISEL-CONVENTIONS.md §6.2；usePll 参数仅作记录用途）。
+//（clk_pll 不建模；usePll 参数仅作记录用途）。
 
 package exp5.soc
 

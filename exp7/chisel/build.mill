@@ -7,7 +7,7 @@
 //
 // 本实验的 chisel/ 只含「学生代码 + 本实验特有的 SoC 变体 + 测试 + 文档」；
 // 实验环境的公共模块（Confreg / Bridge1x2 / SyncRam / Decoders / Regfile / 测试工具）
-// 集中在 ../../chisel-common/，通过下面的 sources 引入（见 CHISEL-CONVENTIONS.md §2）。
+// 集中在 ../../chisel-common/，通过下面的 sources 引入。
 //
 // ⚠️ 静态交付：未在真实环境中编译验证过。如需运行：./mill chisel.test
 // 版本：Scala 2.13 + Chisel 3.5.x + ChiselTest 0.6.x（treadle 后端）。

@@ -7,11 +7,9 @@ nav_order: 5
 
 # 实践任务5：5 条指令单周期 CPU
 
-[← 返回首页](../index.md) ｜ [原任务说明](task.md) ｜ [Chisel 环境说明](chisel/README.md) ｜ [逐行对照](chisel/MAPPING.md)
+[← 返回首页](../index.md) ｜ [原任务说明](task.md) ｜ [Chisel 环境说明](chisel/README.md)
 
 > **任务类型**：填空 ｜ **待操作代码**：9 处
->
-> **代码目录**：`code/`（本站收录的原 Verilog 源码） ｜ `chisel/`（本站收录的 Chisel 版环境）
 
 ## 实验目标
 
@@ -21,21 +19,21 @@ nav_order: 5
 
 ### `MinicpuTop.scala`（学生模块接口骨架）
 
-> 源文件：[chisel/src/main/scala/student/MinicpuTop.scala](chisel/src/main/scala/student/MinicpuTop.scala)（本站内副本）
+> 源文件：[chisel/src/main/scala/student/MinicpuTop.scala](chisel/src/main/scala/student/MinicpuTop.scala)
 
 ```scala
 // SPDX-License-Identifier: BSD-3-Clause
 // ============================================================================
 // 学生模块（填空）：miniCPU 单周期 CPU，5 条指令
 //   对应原 Verilog：code/miniCPU/minicpu_top.v
-//   本实验（实践任务5）的教学意图 = 填空：
+//   本实验（实践任务5）的要求：填空：
 //   原 Verilog 中有 9 处空位（`assign x = ;` 与 regfile 实例化的空括号），
 //   Chisel 版同样保留 9 处空缺，用 `???` + TODO(填空) 标记。
 //   —— 未补全时 elaboration 会以 NotImplementedError 终止，等价于原 Verilog
 //      含空位时的语法错误：不补全就跑不起来。
 //   参考解见 ../solution/MinicpuTop.scala（不参与默认编译）。
 //
-// 与 Verilog 的两点差异（见 ../MAPPING.md）：
+// 与 Verilog 的两点差异：
 //   1. clk 端口 → Chisel 隐式 clock，不再是 IO；
 //   2. Chisel 要求「先声明后使用」，故 pc 的更新语句移到文件末尾，
 //      组合逻辑顺序做了等价重排（信号名与含义不变）。
@@ -164,7 +162,7 @@ class MinicpuTop extends Module {
 //     end
 //
 // 复位为同步复位（原 always @(posedge clk) 内判断），故 Chisel 版手写同步复位，
-// 不使用 RegInit 的隐式复位（见 CHISEL-CONVENTIONS.md §4.3）。
+// 不使用 RegInit 的隐式复位。
 
 package exp5.soc
 
@@ -213,7 +211,7 @@ class Confreg extends Module {
 // 地址端口 a 由 IP 定义为 5 位，实例化时传入 16 位的 inst_addr[17:2]，
 // 因此高 11 位被截断（本实验程序中地址恒落在 0..11，行为一致）。
 //
-// Chisel 替代方案（见 CHISEL-CONVENTIONS.md §6.2）：
+// Chisel 替代方案：
 //     用 RegInit(VecInit(常量表)) 实现「复位即有初值、异步读、同步写」的 RAM，
 //     与 single_port_ram + coe 初始化 + 非寄存输出 的行为等价，且不需要任何文件 I/O。
 
@@ -289,7 +287,7 @@ class InstRam(program: Seq[BigInt] = InstRamProgram.words, depth: Int = 32) exte
 //     assign led = ~conf_led;
 //
 // 时钟：Chisel 使用隐式 clock，等价于原 generate 的 speedup_simulation 分支
-//（clk_pll 不建模，见 CHISEL-CONVENTIONS.md §6.2；usePll 参数仅作记录用途）。
+//（clk_pll 不建模；usePll 参数仅作记录用途）。
 
 package exp5.soc
 
@@ -530,16 +528,14 @@ class SocMiniTop(
 | 原实验判据 | `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!` |
 | Chisel 版判据 | MinicpuTopSpec：led = ~f(n) 断言 |
 | 运行方式 | `cd chisel && ./mill chisel.test`（需 JDK 17 + Mill） |
-| 运行所需运行件 | 本实验**不需要**外部运行件（exp5 用内嵌常量表；exp17/exp20 为模块级环境） |
-| ✅ 编译验证 | `chisel.compile` / `chisel.test.compile` 已用 Mill 1.0.4 + JDK 17 + Chisel 3.5.6 实测通过（**未跑仿真**）；复查报告见 [编译复查报告](../编译复查报告.md) |
+| 运行准备 | 无需额外文件，直接运行即可 |
 
 ## 参考
 
-- 原任务说明：[`task.md`](task.md)（硬链接到 `taskvscode/exp5/4.3.1实践任务5-5条指令单周期CPU.md`）
-- Chisel 环境说明：[`chisel/README.md`](chisel/README.md)（速览 / 步骤 / 判据 / 自检）
-- Verilog ↔ Chisel 逐行对照：[`chisel/MAPPING.md`](chisel/MAPPING.md)
-- 改写规范与核验记录：[CHISEL-CONVENTIONS.md](../CHISEL-CONVENTIONS.md)
-- 原书（LoongArch 版）：https://bookdown.org/loongson/_book3/
+- 原任务说明：[`task.md`](task.md)
+- Chisel 环境说明：[`chisel/README.md`](chisel/README.md)（文件清单 / 步骤 / 判据）
+- 教材：[《CPU 设计实战：LoongArch 版》](https://bookdown.org/loongson/_book3/)（汪文祥、邢金璋 等著）
+- Chisel 写法参考：[Verilog to Chisel（黄治豪）](https://zihaojf.github.io/Chisel-/chisel/%E7%AE%80%E4%BB%8B/)
 
 ---
 

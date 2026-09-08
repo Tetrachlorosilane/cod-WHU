@@ -18,6 +18,7 @@ cod-WHU.github.io/
 ├── _config.yml               # GitHub Pages / Jekyll 配置
 ├── .gitignore / .gitattributes
 ├── CHISEL-CONVENTIONS.md     # Chisel 改写规范（含术语表 / 核验记录 / 自检）
+├── chisel-common/            # 共享环境库（exp7~exp23 的 chisel/ 通过 ../../chisel-common/ 引用）
 ├── tools/
 │   ├── preview.mjs           # 本地预览服务（零依赖，渲染 markdown 并带侧边栏）
 │   └── check.mjs             # 站点自检（目录 / 链接 / 代码块 / 待操作计数）

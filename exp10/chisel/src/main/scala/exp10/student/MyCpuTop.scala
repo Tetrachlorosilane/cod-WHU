@@ -3,13 +3,13 @@
 // 学生模块（从零实现 + 指令扩展）：myCPU —— 五级流水线，新增算术逻辑类与乘除类指令
 //   对应原实验：code/myCPU/（原实验环境**不提供** myCPU 目录，由学生自己实现）
 //
-// 本实验（实践任务10）的教学意图 = 从零实现（在 exp9 基础上增量）：
+// 本实验（实践任务10）的要求：从零实现（在 exp9 基础上增量）：
 //   在 exp9 的流水线基础上添加指令：
 //     ① 算术逻辑类：slti、sltui、andi、ori、xori、sll、srl、sra、pcaddu12i；
 //     ② 乘除类：mul.w、mulh.w、mulh.wu、div.w、mod.w、div.wu、mod.wu。
 //   Chisel 版只给接口骨架 + 10 处 TODO(实现)，内部逻辑全部留空（???）。
 //
-// 实现提示（详细方案见原书 6.1.1 / ../../chisel4agent/09-CPU开发场景速查.md）：
+// 实现提示（详细方案见原书 6.1.1）：
 //   * 立即数类新增 slti/sltui（si12 符号扩展）、andi/ori/xori（ui12 零扩展）；
 //     —— 注意 ui12 与 si12 的扩展方式不同，立即数生成需按指令区分；
 //   * sll/srl/sra 的移位量来自 rk[4:0]；slli/srli/srai 的移位量来自 ui5；

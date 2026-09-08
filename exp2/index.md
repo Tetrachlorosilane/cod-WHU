@@ -7,11 +7,9 @@ nav_order: 2
 
 # 实践任务2：寄存器堆仿真
 
-[← 返回首页](../index.md) ｜ [原任务说明](task.md) ｜ [Chisel 环境说明](../index.md) ｜ [逐行对照](../index.md)
+[← 返回首页](../index.md) ｜ [原任务说明](task.md) ｜ [Chisel 环境说明](../index.md)
 
 > **任务类型**：Verilog 版（Chisel 改写自 exp5 起）
->
-> **代码目录**：`code/`（本站收录的原 Verilog 源码）
 
 ## 实验目标
 
@@ -139,12 +137,12 @@ begin
 | 原实验判据 | 见原任务说明 |
 | Chisel 版判据 | rf_tb 仿真通过 |
 | 运行方式 | 见原任务说明（Vivado 仿真） |
-| ✅ 编译验证 | — |
 
 ## 参考
 
-- 原任务说明：[`task.md`](task.md)（硬链接到 `taskvscode/exp2/3.1.1实践任务2-寄存器堆仿真.md`）
-- 原书（LoongArch 版）：https://bookdown.org/loongson/_book3/
+- 原任务说明：[`task.md`](task.md)
+- 教材：[《CPU 设计实战：LoongArch 版》](https://bookdown.org/loongson/_book3/)（汪文祥、邢金璋 等著）
+- Chisel 写法参考：[Verilog to Chisel（黄治豪）](https://zihaojf.github.io/Chisel-/chisel/%E7%AE%80%E4%BB%8B/)
 
 ---
 

@@ -4,7 +4,7 @@
 //   对应原实验：本实验要求自行编写 `cache.v`，模块名固定为 `cache`
 //   （原实验环境只提供 cache_top.v 验证环境，不提供 Cache 本体）。
 //
-// 本实验（实践任务20）的教学意图 = 从零实现：
+// 本实验（实践任务20）的要求：从零实现：
 //   Chisel 版只给接口骨架 + TODO(实现)，内部逻辑全部留空（???）。
 //   未实现时 elaboration 会以 NotImplementedError 终止，这是预期行为。
 //
@@ -15,7 +15,7 @@
 //   * 与总线侧接口：rd_req/rd_type/rd_addr（读请求，ret_valid/ret_last/ret_data 返回数据）、
 //     wr_req/wr_type/wr_addr/wr_wstrb/wr_data（写回，wr_rdy 握手）。
 //
-// 实现提示（见原书 10.1/10.2 / ../../chisel4agent/06-进阶写法.md）：
+// 实现提示（见原书 10.1/10.2）：
 //   * 命中判断：index 选组，tag 比两路；命中且 op=0 直接返回 rdata；
 //   * miss：op=1（写）时先发 rd 请求把整行读入（验证环境返回全 1），再写入并置脏；
 //     op=0（读）时发 rd 请求读入整行后返回数据；

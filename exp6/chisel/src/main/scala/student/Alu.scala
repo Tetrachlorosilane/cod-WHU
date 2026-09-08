@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // ============================================================================
 // 学生模块（找错）：ALU —— 对应原 Verilog：code/myCPU/alu.v
-// 本实验（实践任务6）的教学意图 = 找错：原 myCPU/ 里被"加入了若干错误"。
-// 本文件保留与 alu.v 同族的**功能错误**（共 4 处，见 ../MAPPING.md 错误映射表）。
+// 本实验（实践任务6）的要求：找错：原 myCPU/ 里被"加入了若干错误"。
+// 本文件保留与 alu.v 同族的**功能错误**（共 4 处
 //   #2 sll_result 的操作数写反          （原 alu.v:80）
 //   #3 sr64_result 的操作数写反         （原 alu.v:83）
 //   #4 sr_result 位选范围写错           （原 alu.v:85）
 //   #1' 原 alu.v:74 的 `or_result = alu_src1 | alu_src2 | alu_result` 是**组合自引用**
 //      （与 alu_result 成环）。Chisel/FIRRTL 无法 elaborate 组合环，故按
-//      CHISEL-CONVENTIONS.md §6 用等价的"OR 操作数错误"替代，详见 MAPPING.md。
+//      用等价的"OR 操作数错误"替代。
 // 请勿修正这些错误——它们就是本实验要你找出来的东西。
 // 参考解见 ../solution/Alu.scala。
 // ============================================================================

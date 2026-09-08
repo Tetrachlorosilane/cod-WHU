@@ -7,11 +7,9 @@ nav_order: 6
 
 # 实践任务6：20 条指令单周期 CPU
 
-[← 返回首页](../index.md) ｜ [原任务说明](task.md) ｜ [Chisel 环境说明](chisel/README.md) ｜ [逐行对照](chisel/MAPPING.md)
+[← 返回首页](../index.md) ｜ [原任务说明](task.md) ｜ [Chisel 环境说明](chisel/README.md)
 
 > **任务类型**：找错 ｜ **待操作代码**：7 处
->
-> **代码目录**：`code/`（本站收录的原 Verilog 源码） ｜ `chisel/`（本站收录的 Chisel 版环境）
 
 ## 实验目标
 
@@ -22,20 +20,20 @@ nav_order: 6
 
 ### `Alu.scala`（学生模块接口骨架）
 
-> 源文件：[chisel/src/main/scala/student/Alu.scala](chisel/src/main/scala/student/Alu.scala)（本站内副本）
+> 源文件：[chisel/src/main/scala/student/Alu.scala](chisel/src/main/scala/student/Alu.scala)
 
 ```scala
 // SPDX-License-Identifier: BSD-3-Clause
 // ============================================================================
 // 学生模块（找错）：ALU —— 对应原 Verilog：code/myCPU/alu.v
-// 本实验（实践任务6）的教学意图 = 找错：原 myCPU/ 里被"加入了若干错误"。
-// 本文件保留与 alu.v 同族的**功能错误**（共 4 处，见 ../MAPPING.md 错误映射表）。
+// 本实验（实践任务6）的要求：找错：原 myCPU/ 里被"加入了若干错误"。
+// 本文件保留与 alu.v 同族的**功能错误**（共 4 处
 //   #2 sll_result 的操作数写反          （原 alu.v:80）
 //   #3 sr64_result 的操作数写反         （原 alu.v:83）
 //   #4 sr_result 位选范围写错           （原 alu.v:85）
 //   #1' 原 alu.v:74 的 `or_result = alu_src1 | alu_src2 | alu_result` 是**组合自引用**
 //      （与 alu_result 成环）。Chisel/FIRRTL 无法 elaborate 组合环，故按
-//      CHISEL-CONVENTIONS.md §6 用等价的"OR 操作数错误"替代，详见 MAPPING.md。
+//      用等价的"OR 操作数错误"替代。
 // 请勿修正这些错误——它们就是本实验要你找出来的东西。
 // 参考解见 ../solution/Alu.scala。
 // ============================================================================
@@ -92,7 +90,7 @@ class Alu extends Module {
 
 ### `MyCpuTop.scala`（学生模块接口骨架）
 
-> 源文件：[chisel/src/main/scala/student/MyCpuTop.scala](chisel/src/main/scala/student/MyCpuTop.scala)（本站内副本）
+> 源文件：[chisel/src/main/scala/student/MyCpuTop.scala](chisel/src/main/scala/student/MyCpuTop.scala)
 
 ```scala
 // SPDX-License-Identifier: BSD-3-Clause
@@ -100,12 +98,12 @@ class Alu extends Module {
 // 学生模块（找错）：myCPU 单周期 CPU（20 条指令）
 //   对应原 Verilog：code/myCPU/mycpu_top.v
 //
-// 本实验（实践任务6）的教学意图 = 找错。原 myCPU/ 目录被"加入了若干错误"，
+// 本实验（实践任务6）的要求：找错。原 myCPU/ 目录被"加入了若干错误"，
 // 学生通过仿真波形 + golden_trace.txt 比对找出并修复。Chisel 版保留同族错误：
 //   #5  ALU 的 alu_src1 端口误接成 alu_src2        （原 mycpu_top.v:253）
 //   #6  debug_wb_rf_we 未被正确驱动（原端口名拼错） （原 mycpu_top.v:271）
 //   #7  final_result 位宽被截断成 1 位             （原 mycpu_top.v:263，未声明 → 隐式 1 位线网）
-//   其余 4 处错误在 ../student/Alu.scala 中，见 ../MAPPING.md 错误映射表。
+//   其余 4 处错误在 ../student/Alu.scala 中
 //
 // 请勿修正这些错误——它们就是本实验要你找出来的东西。
 // 参考解见 ../solution/MyCpuTop.scala 与 ../solution/Alu.scala。
@@ -252,7 +250,7 @@ class MyCpuTop extends Module {
 //     always @*             if (!we) data_out = ram[address]; // 异步读
 //     initial $readmemb(".../func/obj/inst_ram.mif", async_ram.ram);
 //
-// Chisel 差异（见 ../MAPPING.md）：
+// Chisel 差异：
 //   1. Chisel 没有三态/Z，写周期读数据取 0（原为 Z；CPU 在写周期不会读数据）。
 //   2. 存储器初始化：原用 $readmemb 读 .mif；Chisel 版把内容作为构造参数 init 传入，
 //      由测试侧读取 .mif 文件（见 src/test/scala/MifLoader.scala），
@@ -392,10 +390,10 @@ class Bridge1x2 extends Module {
 // 覆盖：cr0~cr7、led、led_rg0/1、数码管扫描、switch、按键消抖状态机、step 按键、
 //       timer、仿真标志（simu_flag/io_simu/open_trace/num_monitor）、虚拟串口。
 //
-// 与 Verilog 的差异（见 ../MAPPING.md）：
+// 与 Verilog 的差异：
 //   1. timer 原用独立的 timer_clk；本实验 `SIMU_USE_PLL=0 ⇒ timer_clk = cpu_clk`，
 //      故 Chisel 版把 timer 逻辑放在同一隐式时钟域，行为等价。
-//   2. 复位为同步复位，按 CHISEL-CONVENTIONS.md §4.3 手写 when(!resetn)。
+//   2. 复位为同步复位，手写 when(!resetn)。
 //   3. Verilog 的 case 语句用 VecInit + 索引等价实现。
 
 package exp6.soc
@@ -469,7 +467,7 @@ class Confreg(simulation: Boolean = false) extends Module {
 //
 // 结构：cpu → inst_ram；cpu.data → bridge_1x2 → {data_ram, confreg}
 //
-// 与 Verilog 的差异（见 ../MAPPING.md）：
+// 与 Verilog 的差异：
 //   1. clk 端口 → Chisel 隐式 clock；原 `SIMU_USE_PLL=0` 的加速分支
 //      （cpu_clk = timer_clk = clk）直接作为唯一时钟域，不建模 clk_pll。
 //   2. 原 soc_lite_top 把 debug_wb_* 作为内部线网引给 testbench；
@@ -723,16 +721,14 @@ class SocLiteTop(
 | 原实验判据 | `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!` |
 | Chisel 版判据 | MyCpuTbSpec：golden_trace 逐条比对（9776 条） |
 | 运行方式 | `cd chisel && ./mill chisel.test`（需 JDK 17 + Mill） |
-| 运行所需运行件 | 本实验的 Chisel 测试会读取 `code/func/obj/inst_ram.mif`、`code/func/obj/data_ram.mif` 与 `code/gettrace/golden_trace.txt`。它们未直接入库（107MB），但已打包为 [`assets/sim-assets.tar.gz`](../assets/sim-assets.tar.gz)（13.6MB）：在仓库根执行 `node tools/unpack-assets.mjs` 即解包就位（可加 `--check` 只校验 sha256） |
-| ✅ 编译验证 | `chisel.compile` / `chisel.test.compile` 已用 Mill 1.0.4 + JDK 17 + Chisel 3.5.6 实测通过（**未跑仿真**）；复查报告见 [编译复查报告](../编译复查报告.md) |
+| 运行准备 | 先在仓库根执行 `node tools/unpack-assets.mjs` 解包仿真运行件（`.mif` / `golden_trace.txt`），否则测试会提示找不到文件 |
 
 ## 参考
 
-- 原任务说明：[`task.md`](task.md)（硬链接到 `taskvscode/exp6/4.3.2实践任务6-20条指令单周期CPU.md`）
-- Chisel 环境说明：[`chisel/README.md`](chisel/README.md)（速览 / 步骤 / 判据 / 自检）
-- Verilog ↔ Chisel 逐行对照：[`chisel/MAPPING.md`](chisel/MAPPING.md)
-- 改写规范与核验记录：[CHISEL-CONVENTIONS.md](../CHISEL-CONVENTIONS.md)
-- 原书（LoongArch 版）：https://bookdown.org/loongson/_book3/
+- 原任务说明：[`task.md`](task.md)
+- Chisel 环境说明：[`chisel/README.md`](chisel/README.md)（文件清单 / 步骤 / 判据）
+- 教材：[《CPU 设计实战：LoongArch 版》](https://bookdown.org/loongson/_book3/)（汪文祥、邢金璋 等著）
+- Chisel 写法参考：[Verilog to Chisel（黄治豪）](https://zihaojf.github.io/Chisel-/chisel/%E7%AE%80%E4%BB%8B/)
 
 ---
 

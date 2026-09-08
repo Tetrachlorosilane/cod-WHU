@@ -3,7 +3,7 @@
 //
 // 结构：cpu → inst_ram；cpu.data → bridge_1x2 → {data_ram, confreg}
 //
-// 与 Verilog 的差异（见 ../MAPPING.md）：
+// 与 Verilog 的差异：
 //   1. clk 端口 → Chisel 隐式 clock；原 `SIMU_USE_PLL=0` 的加速分支
 //      （cpu_clk = timer_clk = clk）直接作为唯一时钟域，不建模 clk_pll。
 //   2. 原 soc_lite_top 把 debug_wb_* 作为内部线网引给 testbench；

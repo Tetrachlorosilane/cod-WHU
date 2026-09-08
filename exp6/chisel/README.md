@@ -1,51 +1,22 @@
 ---
-exp: 6
-title: 20 条指令单周期 CPU
-doc: chisel-env
-source: taskvscode/exp6/code/（原 Verilog 实验环境，未改动）
-source_url: https://bookdown.org/loongson/_book3/
-ver: agent-1.0
-intent: 找错
-keywords: [单周期CPU, 找错, golden_trace, ALU, 隐式线网]
-prereqs: [exp5]
-objectives:
-  - 找出并修复 7 处功能错误（alu 4 处 + mycpu_top 3 处）
-  - 用 golden_trace 逐条比对定位错误
-  - 修复后通过 9776 条 trace 比对
 layout: default
 nav_exclude: true
 ---
 
 # exp6 Chisel 版实验环境（实践任务6：20 条指令单周期 CPU）
 
-> 对应原实验：`../code/`（Verilog，源自 `output/exp6`）+ `../4.3.2实践任务6-20条指令单周期CPU.md`。
-> 改写规范：`../../CHISEL-CONVENTIONS.md`。对照表（含**错误映射表**）：`./MAPPING.md`。
-
-
 ## 本实验速览（TL;DR）
 
 - **实验目标**：20 条指令单周期 CPU（原书实践任务6）。
 - **Chisel 交付物**：本目录 `chisel/`（学生模块 + 本实验 SoC 变体 + 测试 + 文档）。
-- **教学意图**：找错 —— 等价保留原 Verilog 的 **7 处功能错误**（`TODO(找错 #n)`），逐条记录于 `MAPPING.md` 错误映射表；参考解在 `solution/`。
+
 - **判据复现**：TraceHarness：golden_trace 逐条比对 + num_data 监视。
 - **共享依赖**：自包含（本目录即完整环境）。
-- **✅ 编译验证**：`chisel.compile` / `chisel.test.compile` 已实测通过（未仿真）；逐行对照见 `MAPPING.md`；运行方式见 §3。
-
-## ✅ 编译验证（未仿真）
-
-> 本目录的 Chisel 代码已用 **Mill 1.0.4 + JDK 17 + Chisel 3.5.6 + Scala 2.13.12** 实测通过
-> `./mill chisel.compile` 与 `./mill chisel.test.compile`（**尚未跑仿真**）。
-> 复查报告：仓库根 `verify/REPORT.md`。跑仿真：`./mill chisel.test`
-> （exp6~exp23 需先解包运行件：`node ../../../cod-WHU.github.io/tools/unpack-assets.mjs`）。
 
 ## 1. 本实验要求（原书 4.3.2）
 
 阅读并理解 `myCPU/` 目录下提供的代码，**通过仿真波形调试修复其中被故意加入的错误**，
 使设计通过仿真验证（`gettrace/golden_trace.txt` 逐条比对）与上板验证。
-
-**Chisel 版保留的教学意图 = 找错**：原 Verilog 的 7 处错误被等价保留（详见 `MAPPING.md` §4），
-其中 3 处位于 `student/MyCpuTop.scala`、4 处位于 `student/Alu.scala`。
-**请勿修正这些错误——它们就是本实验要你找出来的东西。**
 
 运行测试会失败（trace 比对报错），这正是起点：修好全部 7 处后应打印 `----PASS!!!`。
 
@@ -54,7 +25,6 @@ nav_exclude: true
 ```text
 chisel/
 ├── README.md                       # 本文件
-├── MAPPING.md                      # Verilog ↔ Chisel 对照 + ★错误映射表 + RAM/IP 替代说明
 ├── build.mill
 ├── src/main/scala/
 │   ├── common/
@@ -77,10 +47,9 @@ chisel/
 
 ## 3. 怎么做这个实验
 
-1. 先读 `student/MyCpuTop.scala` 与 `student/Alu.scala`，对照 `../code/myCPU/` 与 `MAPPING.md`。
 2. 运行测试观察失败信息（trace 第一条不一致的位置就是线索）：
    ```bash
-   cd taskvscode/exp6/chisel
+   cd chisel
    ./mill chisel.test
    ```
 3. 逐处修复 `TODO(找错 #n)` 标记的错误，直到测试通过。
@@ -108,14 +77,3 @@ chisel/
    Chisel 版合并为同一时钟域。
 4. RAM 深度按程序长度取 2 的幂；`.xci/.xdc/.tcl/.xpr` 等 Vivado 资产不改写。
 5. 原 `async_ram` 写周期读数据输出 `Z`；Chisel 无三态，取 0（写周期 CPU 不读数据）。
-
-细节见 `MAPPING.md`。
-
-## 自检（Agent 快速检查点）
-
-- [ ] `README.md` / `MAPPING.md` / `build.mill` 齐备且非空。
-- [ ] 学生模块 TODO 标记数为 **7**（类型：`TODO(找错 #n)`），与 `MAPPING.md` 记载一致。
-- [ ] 顶层端口与 `../code/` 下原 Verilog 的例化端口一一对应（`MAPPING.md` 已列表）。
-- [ ] 判据复现方式已写明（见 §4），且与原文 testbench 的检查逻辑一致。
-- [ ] 编译验证声明已保留（本文件 §✅ 与 `MAPPING.md`）。
-- [ ] 静态检查通过：`node ../../../tools/chisel_static_check.mjs exp6`。

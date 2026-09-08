@@ -3,11 +3,11 @@
 // 学生模块（从零实现 + CACOP）：myCPU —— 五级流水线，AXI 接口，I/D Cache，CACOP
 //   对应原实验：code/myCPU/（原实验环境**不提供** myCPU 目录，由学生自己实现）
 //
-// 本实验（实践任务23）的教学意图 = 从零实现（在 exp22 基础上增量）：
+// 本实验（实践任务23）的要求：从零实现（在 exp22 基础上增量）：
 //   在已集成 I/D Cache 的 CPU 中增加 **CACOP 指令**（Cache 操作）实现。
 //   Chisel 版只给接口骨架 + 20 处 TODO(实现)，内部逻辑全部留空（???）。
 //
-// CACOP 语义（详细见原书 10.2.4 / ../../chisel4agent/09-CPU开发场景速查.md）：
+// CACOP 语义（详细见原书 10.2.4）：
 //   * 指令格式：`cacop code, rj, si12`，其中 `code[4:3]` 选择 Cache：
 //     0 = 按地址操作 ICache，1 = 按地址操作 DCache，
 //     2 = 按索引操作 ICache，3 = 按索引操作 DCache；

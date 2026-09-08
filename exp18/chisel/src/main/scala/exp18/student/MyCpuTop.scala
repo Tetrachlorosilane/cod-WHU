@@ -3,13 +3,13 @@
 // 学生模块（从零实现 + TLB 指令/CSR）：myCPU —— 五级流水线，AXI 接口，集成 TLB
 //   对应原实验：code/myCPU/（原实验环境**不提供** myCPU 目录，由学生自己实现）
 //
-// 本实验（实践任务18）的教学意图 = 从零实现（在 exp16 + exp17 基础上增量）：
+// 本实验（实践任务18）的要求：从零实现（在 exp16 + exp17 基础上增量）：
 //   ① 把 exp17 的 TLB 模块集成进 CPU；
 //   ② 新增指令：TLBSRCH、TLBRD、TLBWR、TLBFILL、INVTLB；
 //   ③ 新增 CSR：TLBIDX、TLBEHI、TLBELO0、TLBELO1、ASID、TLBRENTRY。
 //   Chisel 版只给接口骨架 + 16 处 TODO(实现)，内部逻辑全部留空（???）。
 //
-// 实现提示（详细方案见原书 9.2.2 / ../../chisel4agent/09-CPU开发场景速查.md）：
+// 实现提示（详细方案见原书 9.2.2）：
 //   * TLBIDX.Index / .NE / .PS；TLBEHI.VPPN / .V4；TLBELO0/1.PPN/PLV/MAT/G/D/V；
 //     ASID.ASID；TLBRENTRY.PS/PPN/VA —— 与 exp17 的 Tlb 接口逐字段对应；
 //   * TLBSRCH：用 TLBEHI.VPPN + ASID 查 TLB，命中则写 TLBIDX.Index；

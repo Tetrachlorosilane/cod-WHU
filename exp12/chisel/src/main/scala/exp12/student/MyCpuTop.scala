@@ -3,13 +3,13 @@
 // 学生模块（从零实现 + 例外支持）：myCPU —— 五级流水线，新增 CSR 指令与 syscall 例外
 //   对应原实验：code/myCPU/（原实验环境**不提供** myCPU 目录，由学生自己实现）
 //
-// 本实验（实践任务12）的教学意图 = 从零实现（在 exp11 基础上增量）：
+// 本实验（实践任务12）的要求：从零实现（在 exp11 基础上增量）：
 //   ① 新增指令：csrrd、csrwr、csrxchg、ertn、syscall；
 //   ② 新增控制状态寄存器：CRMD、PRMD、ESTAT、ERA、EENTRY、SAVE0~3；
 //   ③ 实现 syscall 例外（进入例外处理入口、ertn 返回）。
 //   Chisel 版只给接口骨架 + 12 处 TODO(实现)，内部逻辑全部留空（???）。
 //
-// 实现提示（详细方案见原书 7.1.1 / ../../chisel4agent/09-CPU开发场景速查.md）：
+// 实现提示（详细方案见原书 7.1.1）：
 //   * CSR 指令格式：csr_num 在 inst[23:10]；csrrd 只读、csrwr 写、csrxchg 按掩码改写
 //     （掩码为 rj 的值）；写 CSR 可能改变特权级等全局状态；
 //   * syscall 例外：Ecode = 0xB(SYS)；ERA ← 触发指令的 PC；ESTAT.Ecode/IS 更新；

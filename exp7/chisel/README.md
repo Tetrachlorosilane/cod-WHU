@@ -1,42 +1,16 @@
 ---
-exp: 7
-title: 简单流水线 CPU（不考虑相关冲突）
-doc: chisel-env
-source: taskvscode/exp7/code/（原 Verilog 实验环境，未改动）
-source_url: https://bookdown.org/loongson/_book3/
-ver: agent-1.0
-intent: 从零实现
-keywords: [五级流水线, IF/ID/EX/MEM/WB, block RAM, 同步读]
-prereqs: [exp6]
-objectives:
-  - 实现 IF/ID/EX/MEM/WB 五级流水线
-  - 处理 block RAM 同步读的时序
-  - 跑通 exp7 的 golden_trace
 layout: default
 nav_exclude: true
 ---
 
 # exp7 Chisel 版实验环境（实践任务7：不考虑相关冲突处理的简单流水线 CPU）
 
-> 对应原实验：`../code/`（Verilog，源自 `output/exp7`）+ `../5.1.1实践任务7-不考虑相关冲突处理的简单流水线CPU.md`。
-> 改写规范：`../../CHISEL-CONVENTIONS.md`。对照表：`./MAPPING.md`。
-
-
 ## 本实验速览（TL;DR）
 
 - **实验目标**：简单流水线 CPU（不考虑相关冲突）（原书实践任务7）。
 - **Chisel 交付物**：本目录 `chisel/`（学生模块 + 本实验 SoC 变体 + 测试 + 文档）。
-- **教学意图**：从零实现 —— 只给接口骨架 + **9 处 `TODO(实现 n/9)`**，内部逻辑留空（`???`）。
+
 - **判据复现**：TraceHarness：golden_trace 逐条比对 + num_data 监视。
-- **共享依赖**：`../../chisel-common/`（环境库，见 `../../CHISEL-CONVENTIONS.md` §2.2）。
-- **✅ 编译验证**：`chisel.compile` / `chisel.test.compile` 已实测通过（未仿真）；逐行对照见 `MAPPING.md`；运行方式见 §3。
-
-## ✅ 编译验证（未仿真）
-
-> 本目录的 Chisel 代码已用 **Mill 1.0.4 + JDK 17 + Chisel 3.5.6 + Scala 2.13.12** 实测通过
-> `./mill chisel.compile` 与 `./mill chisel.test.compile`（**尚未跑仿真**）。
-> 复查报告：仓库根 `verify/REPORT.md`。跑仿真：`./mill chisel.test`
-> （exp6~exp23 需先解包运行件：`node ../../../cod-WHU.github.io/tools/unpack-assets.mjs`）。
 
 ## 1. 本实验要求（原书 5.1.1）
 
@@ -47,16 +21,11 @@ nav_exclude: true
 3. 设计一个**不考虑相关冲突**的单发射五级流水 CPU；
 4. 运行 exp7 对应的 func，通过仿真验证（`gettrace/golden_trace.txt` 逐条比对）与上板验证。
 
-**Chisel 版保留的教学意图 = 从零实现**：原实验环境**不提供** `myCPU/`，
-`chisel/src/main/scala/exp7/student/MyCpuTop.scala` 只给出**接口骨架 + 9 处 `TODO(实现)`**，
-内部流水线逻辑全部留空（`???`）。未实现时 elaboration 直接以 `NotImplementedError` 终止。
-
 ## 2. 文件清单
 
 ```text
 chisel/
 ├── README.md                       # 本文件
-├── MAPPING.md                      # Verilog ↔ Chisel 对照 + 接口变化 + 共享模块说明
 ├── build.mill                      # sources 引入 ../../chisel-common
 ├── src/main/scala/exp7/
 │   ├── soc/SocLiteTop.scala        # SoC 薄封装（装配在共享库 envlib.soc.SocBramTop）
@@ -69,16 +38,14 @@ chisel/
 （`CpuIO`/`LACpu` = 学生 CPU 的统一接口，`SocBramTop` = SoC 装配）；
 测试工具 `src/test/scala/envlib/test/Loaders.scala`（`MifLoader` / `TraceLoader`）。
 自 exp7 起采用"共享环境库 + 每实验自有学生代码/薄 SoC 封装/测试/文档"的布局，见
-`../../CHISEL-CONVENTIONS.md` §2。
 
 ## 3. 怎么做这个实验
 
 1. 通读 `src/main/scala/exp7/student/MyCpuTop.scala` 的骨架注释（IF→ID→EX→MEM→WB 九步）。
 2. 参考 `../code/` 下 exp6 的 `myCPU/`（单周期版本，注意它含错误）与 exp7 的 SoC 环境，
-   以及 `../../chisel4agent/08-五级流水线CPU串讲.md`、`09-CPU开发场景速查.md`。
 3. 逐条实现 `TODO(实现 1/9 … 9/9)`，直到能 elaborate 并跑通测试：
    ```bash
-   cd taskvscode/exp7/chisel
+   cd chisel
    ./mill chisel.test
    ```
 4. 本实验**不要求**处理数据相关/控制相关引发的冲突（那是 exp8/exp9）；
@@ -102,12 +69,3 @@ chisel/
 3. `soc_lite_top` 的 `debug_wb_*` 内部线网 → 测试直接访问 `soc.cpu.io.debug_wb_*`。
 4. `confreg` 的 `timer` 原用独立 `timer_clk`；本实验 `timer_clk = cpu_clk`，合并为同一时钟域。
 5. `.xci/.xdc/.tcl/.xpr` 等 Vivado 资产不改写。
-
-## 自检（Agent 快速检查点）
-
-- [ ] `README.md` / `MAPPING.md` / `build.mill` 齐备且非空。
-- [ ] 学生模块 TODO 标记数为 **9**（类型：`TODO(实现 n/9)`），与 `MAPPING.md` 记载一致。
-- [ ] 顶层端口与 `../code/` 下原 Verilog 的例化端口一一对应（`MAPPING.md` 已列表）。
-- [ ] 判据复现方式已写明（见 §4），且与原文 testbench 的检查逻辑一致。
-- [ ] 编译验证声明已保留（本文件 §✅ 与 `MAPPING.md`）。
-- [ ] 静态检查通过：`node ../../../tools/chisel_static_check.mjs exp7`。

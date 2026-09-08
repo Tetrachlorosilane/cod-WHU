@@ -7,11 +7,9 @@ nav_order: 17
 
 # 实践任务17：TLB 模块设计
 
-[← 返回首页](../index.md) ｜ [原任务说明](task.md) ｜ [Chisel 环境说明](chisel/README.md) ｜ [逐行对照](chisel/MAPPING.md)
+[← 返回首页](../index.md) ｜ [原任务说明](task.md) ｜ [Chisel 环境说明](chisel/README.md)
 
 > **任务类型**：从零实现（模块级） ｜ **待操作代码**：4 处
->
-> **代码目录**：`code/`（本站收录的原 Verilog 源码） ｜ `chisel/`（本站收录的 Chisel 版环境）
 
 ## 实验目标
 
@@ -22,7 +20,7 @@ nav_order: 17
 
 ### `Tlb.scala`（学生模块接口骨架）
 
-> 源文件：[chisel/src/main/scala/exp17/student/Tlb.scala](chisel/src/main/scala/exp17/student/Tlb.scala)（本站内副本）
+> 源文件：[chisel/src/main/scala/exp17/student/Tlb.scala](chisel/src/main/scala/exp17/student/Tlb.scala)
 
 ```scala
 // SPDX-License-Identifier: BSD-3-Clause
@@ -31,7 +29,7 @@ nav_order: 17
 //   对应原实验：本实验要求自行编写 `tlb.v`，模块名固定为 `tlb`
 //   （原实验环境只提供 tlb_top.v 验证环境，不提供 TLB 本体）。
 //
-// 本实验（实践任务17）的教学意图 = 从零实现：
+// 本实验（实践任务17）的要求：从零实现：
 //   Chisel 版只给接口骨架 + TODO(实现)，内部逻辑全部留空（???）。
 //   未实现时 elaboration 会以 NotImplementedError 终止，这是预期行为。
 //
@@ -41,7 +39,7 @@ nav_order: 17
 //   读端口：r_e 有效时按 r_index 读出整个表项
 //   invtlb：本实验不使用（验证环境固定接 0）
 //
-// 实现提示（见原书 9.1 / ../../chisel4agent/05-基本语法下.md）：
+// 实现提示（见原书 9.1）：
 //   * 表项可用 Vec of Bundle（或若干并列的 Reg(Vec(...))）表达；
 //   * 查找：把 16 个表项的 {vppn, asid} 与输入比对，考虑 G（全局）位；
 //     `va_bit12` 用于选择页表项 0/1，ps 决定 vppn 的有效位数；
@@ -347,16 +345,14 @@ class TlbTop(
 | 原实验判据 | `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!` |
 | Chisel 版判据 | TlbSpec：16 写 / 16 读 / 26 查 → ----PASS!!! |
 | 运行方式 | `cd chisel && ./mill chisel.test`（需 JDK 17 + Mill） |
-| 运行所需运行件 | 本实验**不需要**外部运行件（exp5 用内嵌常量表；exp17/exp20 为模块级环境） |
-| ✅ 编译验证 | `chisel.compile` / `chisel.test.compile` 已用 Mill 1.0.4 + JDK 17 + Chisel 3.5.6 实测通过（**未跑仿真**）；复查报告见 [编译复查报告](../编译复查报告.md) |
+| 运行准备 | 无需额外文件，直接运行即可 |
 
 ## 参考
 
-- 原任务说明：[`task.md`](task.md)（硬链接到 `taskvscode/exp17/9.2.1实践任务17-TLB模块设计.md`）
-- Chisel 环境说明：[`chisel/README.md`](chisel/README.md)（速览 / 步骤 / 判据 / 自检）
-- Verilog ↔ Chisel 逐行对照：[`chisel/MAPPING.md`](chisel/MAPPING.md)
-- 改写规范与核验记录：[CHISEL-CONVENTIONS.md](../CHISEL-CONVENTIONS.md)
-- 原书（LoongArch 版）：https://bookdown.org/loongson/_book3/
+- 原任务说明：[`task.md`](task.md)
+- Chisel 环境说明：[`chisel/README.md`](chisel/README.md)（文件清单 / 步骤 / 判据）
+- 教材：[《CPU 设计实战：LoongArch 版》](https://bookdown.org/loongson/_book3/)（汪文祥、邢金璋 等著）
+- Chisel 写法参考：[Verilog to Chisel（黄治豪）](https://zihaojf.github.io/Chisel-/chisel/%E7%AE%80%E4%BB%8B/)
 
 ---
 

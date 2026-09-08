@@ -3,12 +3,12 @@
 // 学生模块（从零实现 + ICache）：myCPU —— 五级流水线，AXI 接口，集成 ICache
 //   对应原实验：code/myCPU/（原实验环境**不提供** myCPU 目录，由学生自己实现）
 //
-// 本实验（实践任务21）的教学意图 = 从零实现（在 exp19 + exp20 基础上增量）：
+// 本实验（实践任务21）的要求：从零实现（在 exp19 + exp20 基础上增量）：
 //   ① 把 exp20 实现的 Cache 作为 **ICache** 集成到 CPU 的取指通路上；
 //   ② 修改 CPU 中的 AXI 转换桥，使其支持 **Burst 传输**（一次 AR 取回整行）；
 //   Chisel 版只给接口骨架 + 18 处 TODO(实现)，内部逻辑全部留空（???）。
 //
-// 实现提示（详细方案见原书 10.2.2 / ../../chisel4agent/06-进阶写法.md）：
+// 实现提示（详细方案见原书 10.2.2）：
 //   * ICache 与 CPU 的接口即 exp20 的 `cache` 接口：CPU 侧 valid/op/index/tag/offset/
 //     wstrb/wdata → addr_ok/data_ok/rdata；总线侧 rd_req/rd_type/rd_addr →
 //     ret_valid/ret_last/ret_data（读填充），wr_req/... → wr_rdy（写回，ICache 通常只读）；

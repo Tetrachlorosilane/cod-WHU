@@ -7,11 +7,9 @@ nav_order: 14
 
 # 实践任务14：添加类 SRAM 总线支持
 
-[← 返回首页](../index.md) ｜ [原任务说明](task.md) ｜ [Chisel 环境说明](chisel/README.md) ｜ [逐行对照](chisel/MAPPING.md)
+[← 返回首页](../index.md) ｜ [原任务说明](task.md) ｜ [Chisel 环境说明](chisel/README.md)
 
 > **任务类型**：从零实现 ｜ **待操作代码**：14 处
->
-> **代码目录**：`code/`（本站收录的原 Verilog 源码） ｜ `chisel/`（本站收录的 Chisel 版环境）
 
 ## 实验目标
 
@@ -22,7 +20,7 @@ nav_order: 14
 
 ### `MyCpuTop.scala`（学生模块接口骨架）
 
-> 源文件：[chisel/src/main/scala/exp14/student/MyCpuTop.scala](chisel/src/main/scala/exp14/student/MyCpuTop.scala)（本站内副本）
+> 源文件：[chisel/src/main/scala/exp14/student/MyCpuTop.scala](chisel/src/main/scala/exp14/student/MyCpuTop.scala)
 
 ```scala
 // SPDX-License-Identifier: BSD-3-Clause
@@ -30,14 +28,14 @@ nav_order: 14
 // 学生模块（从零实现 + 握手总线）：myCPU —— 五级流水线，访存接口改为握手式
 //   对应原实验：code/myCPU/（原实验环境**不提供** myCPU 目录，由学生自己实现）
 //
-// 本实验（实践任务14）的教学意图 = 从零实现（在 exp13 基础上增量）：
+// 本实验（实践任务14）的要求：从零实现（在 exp13 基础上增量）：
 //   把 CPU 的访存接口从「en/we/addr/wdata/rdata」改为**握手式类 SRAM 总线**：
 //       请求侧：req、wr、size[1:0]、wstrb[3:0]、addr、wdata
 //       响应侧：addr_ok（请求已被接收）、data_ok（读数据有效）、rdata
 //   并保证在多拍响应（data_ok 延迟返回）下仍能正确工作。
 //   Chisel 版只给接口骨架 + 14 处 TODO(实现)，内部逻辑全部留空（???）。
 //
-// 握手协议要点（详细方案见原书 8.1.1 / ../../chisel4agent/06-进阶写法.md）：
+// 握手协议要点（详细方案见原书 8.1.1）：
 //   * req 与 addr_ok 同时有效表示请求被接收；此后该请求不可撤销；
 //   * 读请求的 data_ok 可能晚若干拍返回，CPU 需要维护"在途请求"的状态；
 //   * size 表示访问宽度（0=字节、1=半字、2=字），wstrb 为字节写使能；
@@ -337,16 +335,14 @@ class SocLiteTop(
 | 原实验判据 | `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!` |
 | Chisel 版判据 | TraceHarness：golden_trace 逐条比对 |
 | 运行方式 | `cd chisel && ./mill chisel.test`（需 JDK 17 + Mill） |
-| 运行所需运行件 | 本实验的 Chisel 测试会读取 `code/func/obj/inst_ram.mif`、`code/func/obj/data_ram.mif` 与 `code/gettrace/golden_trace.txt`。它们未直接入库（107MB），但已打包为 [`assets/sim-assets.tar.gz`](../assets/sim-assets.tar.gz)（13.6MB）：在仓库根执行 `node tools/unpack-assets.mjs` 即解包就位（可加 `--check` 只校验 sha256） |
-| ✅ 编译验证 | `chisel.compile` / `chisel.test.compile` 已用 Mill 1.0.4 + JDK 17 + Chisel 3.5.6 实测通过（**未跑仿真**）；复查报告见 [编译复查报告](../编译复查报告.md) |
+| 运行准备 | 先在仓库根执行 `node tools/unpack-assets.mjs` 解包仿真运行件（`.mif` / `golden_trace.txt`），否则测试会提示找不到文件 |
 
 ## 参考
 
-- 原任务说明：[`task.md`](task.md)（硬链接到 `taskvscode/exp14/8.1.1实践任务14-添加类SRAM总线支持.md`）
-- Chisel 环境说明：[`chisel/README.md`](chisel/README.md)（速览 / 步骤 / 判据 / 自检）
-- Verilog ↔ Chisel 逐行对照：[`chisel/MAPPING.md`](chisel/MAPPING.md)
-- 改写规范与核验记录：[CHISEL-CONVENTIONS.md](../CHISEL-CONVENTIONS.md)
-- 原书（LoongArch 版）：https://bookdown.org/loongson/_book3/
+- 原任务说明：[`task.md`](task.md)
+- Chisel 环境说明：[`chisel/README.md`](chisel/README.md)（文件清单 / 步骤 / 判据）
+- 教材：[《CPU 设计实战：LoongArch 版》](https://bookdown.org/loongson/_book3/)（汪文祥、邢金璋 等著）
+- Chisel 写法参考：[Verilog to Chisel（黄治豪）](https://zihaojf.github.io/Chisel-/chisel/%E7%AE%80%E4%BB%8B/)
 
 ---
 

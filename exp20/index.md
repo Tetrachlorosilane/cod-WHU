@@ -7,11 +7,9 @@ nav_order: 20
 
 # 实践任务20：Cache 模块设计
 
-[← 返回首页](../index.md) ｜ [原任务说明](task.md) ｜ [Chisel 环境说明](chisel/README.md) ｜ [逐行对照](chisel/MAPPING.md)
+[← 返回首页](../index.md) ｜ [原任务说明](task.md) ｜ [Chisel 环境说明](chisel/README.md)
 
 > **任务类型**：从零实现（模块级） ｜ **待操作代码**：5 处
->
-> **代码目录**：`code/`（本站收录的原 Verilog 源码） ｜ `chisel/`（本站收录的 Chisel 版环境）
 
 ## 实验目标
 
@@ -22,7 +20,7 @@ nav_order: 20
 
 ### `Cache.scala`（学生模块接口骨架）
 
-> 源文件：[chisel/src/main/scala/exp20/student/Cache.scala](chisel/src/main/scala/exp20/student/Cache.scala)（本站内副本）
+> 源文件：[chisel/src/main/scala/exp20/student/Cache.scala](chisel/src/main/scala/exp20/student/Cache.scala)
 
 ```scala
 // SPDX-License-Identifier: BSD-3-Clause
@@ -31,7 +29,7 @@ nav_order: 20
 //   对应原实验：本实验要求自行编写 `cache.v`，模块名固定为 `cache`
 //   （原实验环境只提供 cache_top.v 验证环境，不提供 Cache 本体）。
 //
-// 本实验（实践任务20）的教学意图 = 从零实现：
+// 本实验（实践任务20）的要求：从零实现：
 //   Chisel 版只给接口骨架 + TODO(实现)，内部逻辑全部留空（???）。
 //   未实现时 elaboration 会以 NotImplementedError 终止，这是预期行为。
 //
@@ -42,7 +40,7 @@ nav_order: 20
 //   * 与总线侧接口：rd_req/rd_type/rd_addr（读请求，ret_valid/ret_last/ret_data 返回数据）、
 //     wr_req/wr_type/wr_addr/wr_wstrb/wr_data（写回，wr_rdy 握手）。
 //
-// 实现提示（见原书 10.1/10.2 / ../../chisel4agent/06-进阶写法.md）：
+// 实现提示（见原书 10.1/10.2）：
 //   * 命中判断：index 选组，tag 比两路；命中且 op=0 直接返回 rdata；
 //   * miss：op=1（写）时先发 rd 请求把整行读入（验证环境返回全 1），再写入并置脏；
 //     op=0（读）时发 rd 请求读入整行后返回数据；
@@ -316,16 +314,14 @@ class CacheTop(simulation: Boolean = true) extends Module {
 | 原实验判据 | `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!` |
 | Chisel 版判据 | CacheSpec：index 0→0xff 先写后读 → ----PASS!!! |
 | 运行方式 | `cd chisel && ./mill chisel.test`（需 JDK 17 + Mill） |
-| 运行所需运行件 | 本实验**不需要**外部运行件（exp5 用内嵌常量表；exp17/exp20 为模块级环境） |
-| ✅ 编译验证 | `chisel.compile` / `chisel.test.compile` 已用 Mill 1.0.4 + JDK 17 + Chisel 3.5.6 实测通过（**未跑仿真**）；复查报告见 [编译复查报告](../编译复查报告.md) |
+| 运行准备 | 无需额外文件，直接运行即可 |
 
 ## 参考
 
-- 原任务说明：[`task.md`](task.md)（硬链接到 `taskvscode/exp20/10.2.1实践任务20-Cache模块设计.md`）
-- Chisel 环境说明：[`chisel/README.md`](chisel/README.md)（速览 / 步骤 / 判据 / 自检）
-- Verilog ↔ Chisel 逐行对照：[`chisel/MAPPING.md`](chisel/MAPPING.md)
-- 改写规范与核验记录：[CHISEL-CONVENTIONS.md](../CHISEL-CONVENTIONS.md)
-- 原书（LoongArch 版）：https://bookdown.org/loongson/_book3/
+- 原任务说明：[`task.md`](task.md)
+- Chisel 环境说明：[`chisel/README.md`](chisel/README.md)（文件清单 / 步骤 / 判据）
+- 教材：[《CPU 设计实战：LoongArch 版》](https://bookdown.org/loongson/_book3/)（汪文祥、邢金璋 等著）
+- Chisel 写法参考：[Verilog to Chisel（黄治豪）](https://zihaojf.github.io/Chisel-/chisel/%E7%AE%80%E4%BB%8B/)
 
 ---
 

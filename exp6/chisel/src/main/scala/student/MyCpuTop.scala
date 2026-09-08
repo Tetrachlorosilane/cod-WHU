@@ -3,12 +3,12 @@
 // 学生模块（找错）：myCPU 单周期 CPU（20 条指令）
 //   对应原 Verilog：code/myCPU/mycpu_top.v
 //
-// 本实验（实践任务6）的教学意图 = 找错。原 myCPU/ 目录被"加入了若干错误"，
+// 本实验（实践任务6）的要求：找错。原 myCPU/ 目录被"加入了若干错误"，
 // 学生通过仿真波形 + golden_trace.txt 比对找出并修复。Chisel 版保留同族错误：
 //   #5  ALU 的 alu_src1 端口误接成 alu_src2        （原 mycpu_top.v:253）
 //   #6  debug_wb_rf_we 未被正确驱动（原端口名拼错） （原 mycpu_top.v:271）
 //   #7  final_result 位宽被截断成 1 位             （原 mycpu_top.v:263，未声明 → 隐式 1 位线网）
-//   其余 4 处错误在 ../student/Alu.scala 中，见 ../MAPPING.md 错误映射表。
+//   其余 4 处错误在 ../student/Alu.scala 中
 //
 // 请勿修正这些错误——它们就是本实验要你找出来的东西。
 // 参考解见 ../solution/MyCpuTop.scala 与 ../solution/Alu.scala。
