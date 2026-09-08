@@ -1,0 +1,12 @@
+* text=auto eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.png binary
+*.jpg binary
+*.pdf binary
+*.dcp binary
+*.bit binary
+# 让 GitHub 正确统计语言
+*.scala linguist-language=Scala
+*.v linguist-language=Verilog
+*.md linguist-documentation

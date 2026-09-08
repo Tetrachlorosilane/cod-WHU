@@ -1,0 +1,96 @@
+---
+exp: 20
+title: Cache 模块设计（模块级）
+doc: chisel-env
+source: taskvscode/exp20/code/（原 Verilog 实验环境，未改动）
+source_url: https://bookdown.org/loongson/_book3/
+ver: agent-1.0
+intent: 从零实现
+keywords: [Cache, 2路组相联, LRU, 写回, 写分配]
+prereqs: [exp17]
+objectives:
+  - 实现 2 路组相联、每路 4KB、行 16B 的 Cache
+  - 实现 rd 填充与脏行 wr 写回
+  - 每个 index 先写后读直到 0xff → PASS
+---
+
+# exp20 Chisel 版实验环境（实践任务20：Cache 模块设计）
+
+> 对应原实验：`../code/`（Verilog，源自 `output/exp20`）+ `../10.2.1实践任务20-Cache模块设计.md`。
+> 改写规范：`../../CHISEL-CONVENTIONS.md`。对照表：`./MAPPING.md`。
+
+
+## 本实验速览（TL;DR）
+
+- **实验目标**：Cache 模块设计（模块级）（原书实践任务20）。
+- **Chisel 交付物**：本目录 `chisel/`（学生模块 + 本实验 SoC 变体 + 测试 + 文档）。
+- **教学意图**：从零实现 —— 只给接口骨架 + **5 处 `TODO(实现 n/5)`**，内部逻辑留空（`???`）。
+- **判据复现**：CacheSpec：index 0→0xff 先写后读 → `----PASS!!!`。
+- **共享依赖**：不依赖共享库（模块级独立环境）。
+- **⚠️ 未实测**：本目录 Chisel 代码未经编译/仿真，逐行对照见 `MAPPING.md`；运行方式见 §3。
+
+## ⚠️ 未实测声明
+
+> 本目录的 Chisel 代码为**静态交付**：未在 JDK/Mill/Chisel 环境中编译或仿真过。
+> 如需实际运行：安装 JDK 17 + Mill，在本目录执行 `./mill chisel.test`。
+
+## 1. 本实验要求（原书 10.2.1）
+
+1. 设计 **Cache 模块**（模块名 `cache`，接口见原书 10.1 节表 10.2/10.3）；
+   设计规格：**2 路组相联、每路 4KB、LRU 或伪随机替换、建议硬件初始化**；
+2. 利用 Cache 模块级验证环境（`cache_top.v` + `testbench.v`）验证，通过仿真和上板验证。
+
+**Chisel 版保留的教学意图 = 从零实现**：原实验环境只提供验证环境、不提供 Cache 本体；
+Chisel 版同样只给接口骨架：
+`chisel/src/main/scala/exp20/student/Cache.scala` 中有 **5 处 `TODO(实现 n/5)`**，
+内部逻辑全部留空（`???`）；未实现时 elaboration 以 `NotImplementedError` 终止。
+
+## 2. 文件清单
+
+```text
+chisel/
+├── README.md / MAPPING.md / build.mill
+├── src/main/scala/exp20/
+│   ├── soc/CacheTop.scala          # 模块级验证环境（对应 cache_top.v，417 行）
+│   └── student/Cache.scala         # ★ 学生模块：Cache 骨架（5 处 TODO）
+└── src/test/scala/CacheSpec.scala  # 复现"每个 index 先写后读 → ----PASS!!!"
+```
+
+**本实验为模块级独立环境**，不使用 `chisel-common`。
+
+## 3. 怎么做这个实验
+
+1. 实现 `Cache` 的五个部分（`TODO(实现 1/5 … 5/5)`）：
+   存储体、命中判断与读通路、miss 时的 rd 请求填充、写通路与脏行写回、`addr_ok`/`data_ok` 握手。
+2. 运行测试：
+   ```bash
+   cd taskvscode/exp20/chisel
+   ./mill chisel.test
+   ```
+3. 上板流程（Vivado）沿用原书步骤，需 `../code/run_vivado/` 下的原工程
+   （上板时数码管左边两位显示当前 index，到 0xff 停止，见原书 10.2.1.2）。
+
+## 4. 判据（与原实验一一对应）
+
+| 原实验 | Chisel 版 |
+|---|---|
+| 每个 index 完成时打印 `index %x finished` | `CacheSpec` 打印同样进度 |
+| `test_index == 8'hff` 时打印 `----PASS!!!` | 断言 `testIndex == 0xff` 且 `roundFinish`，打印 `----PASS!!!` |
+| `replace_wrong` → `----FAIL!!!` | 断言 `replaceWrong == 0` |
+| `cacheres_wrong` → `----FAIL!!!` | 断言 `cacheresWrong == 0` |
+
+## 5. 与原实验的结构性差异
+
+1. `clk_pll` 不建模（用隐式 clock）。
+2. `wait_cnt` 的重载值由参数 `simulation` 控制（5 / 800_000），与原 `SIMULATION 一致。
+3. 为便于测试平台观测，`CacheTop` 增加了 4 个只读输出
+   （`testIndex/roundFinish/replaceWrong/cacheresWrong`），不影响原有行为。
+
+## 自检（Agent 快速检查点）
+
+- [ ] `README.md` / `MAPPING.md` / `build.mill` 齐备且非空。
+- [ ] 学生模块 TODO 标记数为 **5**（类型：`TODO(实现 n/5)`），与 `MAPPING.md` 记载一致。
+- [ ] 顶层端口与 `../code/` 下原 Verilog 的例化端口一一对应（`MAPPING.md` 已列表）。
+- [ ] 判据复现方式已写明（见 §4），且与原文 testbench 的检查逻辑一致。
+- [ ] 未实测声明已保留（本文件 §⚠️ 与 `MAPPING.md`）。
+- [ ] 静态检查通过：`node ../../../tools/chisel_static_check.mjs exp20`。

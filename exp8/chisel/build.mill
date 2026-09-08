@@ -1,0 +1,46 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// ============================================================================
+// exp8（实践任务8：阻塞技术解决相关引发的冲突）的 Chisel 构建文件
+//
+// 本实验的 chisel/ 只含「学生代码 + 本实验特有的 SoC 变体 + 测试 + 文档」；
+// 实验环境的公共模块集中在 ../../chisel-common/（见 CHISEL-CONVENTIONS.md §2）。
+//
+// ⚠️ 静态交付：未在真实环境中编译验证过。如需运行：./mill chisel.test
+// 版本：Scala 2.13 + Chisel 3.5.x + ChiselTest 0.6.x（treadle 后端）。
+// 若使用 Mill 0.11.x：改名为 build.sc、mill-version 改为 0.11.13，内容不变。
+// ============================================================================
+
+//| mill-version: 1.0.4
+//| mill-jvm-version: 17
+
+package build
+
+import mill._
+import scalalib._
+
+object chisel extends ScalaModule {
+  def scalaVersion = "2.13.12"
+
+  /** taskvscode/chisel-common（从 exp8/chisel 往上两级） */
+  def commonRoot = millSourcePath / os.up / os.up / "chisel-common"
+
+  def ivyDeps = Agg(
+    ivy"edu.berkeley.cs::chisel3:3.5.6"
+  )
+
+  def sources = T.sources(
+    millSourcePath / "src" / "main" / "scala",
+    commonRoot / "src" / "main" / "scala"
+  )
+
+  object test extends ScalaTests with TestModule.ScalaTest {
+    def ivyDeps = Agg(
+      ivy"edu.berkeley.cs::chiseltest:0.6.2",
+      ivy"org.scalatest::scalatest:3.2.19"
+    )
+    def sources = T.sources(
+      millSourcePath / os.up / "src" / "test" / "scala",
+      commonRoot / "src" / "test" / "scala"
+    )
+  }
+}

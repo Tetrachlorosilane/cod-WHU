@@ -1,0 +1,63 @@
+# ============================================================
+# cod-WHU.github.io —— 独立仓库的 .gitignore
+# 站点内容（index.md / expN/index.md / code/ / chisel/）需要提交，故不忽略。
+# 本文件忽略的是：构建缓存、编辑器/系统文件、以及**生成物**（体积大且可再生）。
+# ============================================================
+
+# ---- Jekyll 构建缓存与产物 ----
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
+vendor/
+bundle/
+
+# ---- 依赖与包管理器 ----
+node_modules/
+.npm/
+yarn.lock
+package-lock.json
+
+# ---- 操作系统 / 编辑器 ----
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---- 生成物：实验环境里的可再生产物（体积大，不入库）----
+# 由 func/ 源码编译生成的存储器初始化文件与反汇编
+**/func/obj/
+**/func/obj/**
+# gettrace 生成的参考 trace（可由 gettrace 工程重新生成）
+**/gettrace/golden_trace.txt
+
+# ---- Vivado / Xilinx 工程与缓存 ----
+*.Xil/
+**/.Xil/**
+*.cache/
+*.hw/
+*.sim/
+*.runs/
+*.gen/
+*.ip_user_files/
+*.dcp
+*.bit
+*.ltx
+*.jou
+*.log
+*.str
+*.rpt
+*.wdb
+*.pb
+*.bmm
+*.xpr
+*.xci
+
+# ---- 预览/校验脚本的临时产物 ----
+tools/*.log
