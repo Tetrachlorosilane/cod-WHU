@@ -1,0 +1,409 @@
+{
+  "generatedAt": "2026-09-08T16:14:37.698Z",
+  "bundle": "assets/sim-assets.tar.gz",
+  "files": [
+    {
+      "name": "exp6/code/func/obj/inst_ram.mif",
+      "bytes": 953931,
+      "sha256": "79f373edce3e82369d60d94d83d75ffaf3a5a22719b8b2af43a10a2c2458d0c5"
+    },
+    {
+      "name": "exp6/code/func/obj/inst_ram.coe",
+      "bytes": 260228,
+      "sha256": "60cffb4e6e5aaae4ca426dd860fb185d43641df9a3a5759d6089f01180048f28"
+    },
+    {
+      "name": "exp6/code/func/obj/data_ram.mif",
+      "bytes": 33,
+      "sha256": "54e1f555d80aaeeeac4552dbbdd05e67db5d70ac301df9a019afc9e90f64e92e"
+    },
+    {
+      "name": "exp6/code/func/obj/data_ram.coe",
+      "bytes": 74,
+      "sha256": "8bc44e0d7c792df9aadf8965f33e95a3ca0f22abd57867712256fa2d3151caf2"
+    },
+    {
+      "name": "exp6/code/gettrace/golden_trace.txt",
+      "bytes": 224848,
+      "sha256": "db80063010a4c6ea0fc85dfcbe870fbc8f9642f17f2ff95ea9b3dd9a3e53ec5d"
+    },
+    {
+      "name": "exp7/code/func/obj/inst_ram.mif",
+      "bytes": 7884723,
+      "sha256": "67123b0e9f059ab3916677cc9f2a23d8b61c91424f5f2024a2e50952234906fd"
+    },
+    {
+      "name": "exp7/code/func/obj/inst_ram.coe",
+      "bytes": 2150444,
+      "sha256": "bc26888a65af237538117f7b6793d46947354a0509b128b672f99b7576adacb3"
+    },
+    {
+      "name": "exp7/code/func/obj/data_ram.mif",
+      "bytes": 33,
+      "sha256": "a7526eb0d3df4caa4df727b88811f4c45d2def048ce3895ad18f1fc50b160991"
+    },
+    {
+      "name": "exp7/code/func/obj/data_ram.coe",
+      "bytes": 74,
+      "sha256": "8f486c68260b8d4c3679cc0494081ec5ea5815319e81f071d6f7079689c84576"
+    },
+    {
+      "name": "exp7/code/gettrace/golden_trace.txt",
+      "bytes": 1070282,
+      "sha256": "119af4eeedaf7624a4e4131a1ad33151051958a7976e408e28dc26990f4a1dd4"
+    },
+    {
+      "name": "exp8/code/func/obj/inst_ram.mif",
+      "bytes": 2527635,
+      "sha256": "f2ea995b923006cf9e8f7528d7f9830f4fc21dca4e3a11805d043b416e60208f"
+    },
+    {
+      "name": "exp8/code/func/obj/inst_ram.coe",
+      "bytes": 689420,
+      "sha256": "f4433de9ae9ddce48656ff9851dd4675cf7e653cc6c191964241ce2b929a6aeb"
+    },
+    {
+      "name": "exp8/code/func/obj/data_ram.mif",
+      "bytes": 33,
+      "sha256": "54e1f555d80aaeeeac4552dbbdd05e67db5d70ac301df9a019afc9e90f64e92e"
+    },
+    {
+      "name": "exp8/code/func/obj/data_ram.coe",
+      "bytes": 74,
+      "sha256": "8bc44e0d7c792df9aadf8965f33e95a3ca0f22abd57867712256fa2d3151caf2"
+    },
+    {
+      "name": "exp8/code/gettrace/golden_trace.txt",
+      "bytes": 1070282,
+      "sha256": "25f060c6aa682f8f00c3103a71ec107ee80b31b06c3d816589c7bf2eb521ca7d"
+    },
+    {
+      "name": "exp9/code/func/obj/inst_ram.mif",
+      "bytes": 2527635,
+      "sha256": "f2ea995b923006cf9e8f7528d7f9830f4fc21dca4e3a11805d043b416e60208f"
+    },
+    {
+      "name": "exp9/code/func/obj/inst_ram.coe",
+      "bytes": 689420,
+      "sha256": "f4433de9ae9ddce48656ff9851dd4675cf7e653cc6c191964241ce2b929a6aeb"
+    },
+    {
+      "name": "exp9/code/func/obj/data_ram.mif",
+      "bytes": 33,
+      "sha256": "54e1f555d80aaeeeac4552dbbdd05e67db5d70ac301df9a019afc9e90f64e92e"
+    },
+    {
+      "name": "exp9/code/func/obj/data_ram.coe",
+      "bytes": 74,
+      "sha256": "8bc44e0d7c792df9aadf8965f33e95a3ca0f22abd57867712256fa2d3151caf2"
+    },
+    {
+      "name": "exp9/code/gettrace/golden_trace.txt",
+      "bytes": 1070282,
+      "sha256": "25f060c6aa682f8f00c3103a71ec107ee80b31b06c3d816589c7bf2eb521ca7d"
+    },
+    {
+      "name": "exp10/code/func/obj/inst_ram.mif",
+      "bytes": 3423189,
+      "sha256": "435ad315a5f25b4c672eea9a30f02c7b8deec04e7fc998fd7db2cc7f8ae46881"
+    },
+    {
+      "name": "exp10/code/func/obj/inst_ram.coe",
+      "bytes": 933662,
+      "sha256": "f5d87e20477f1123facf48aca481bac054409f33aa4aac49ebb954fdde040b72"
+    },
+    {
+      "name": "exp10/code/func/obj/data_ram.mif",
+      "bytes": 33,
+      "sha256": "54e1f555d80aaeeeac4552dbbdd05e67db5d70ac301df9a019afc9e90f64e92e"
+    },
+    {
+      "name": "exp10/code/func/obj/data_ram.coe",
+      "bytes": 74,
+      "sha256": "8bc44e0d7c792df9aadf8965f33e95a3ca0f22abd57867712256fa2d3151caf2"
+    },
+    {
+      "name": "exp10/code/gettrace/golden_trace.txt",
+      "bytes": 1597879,
+      "sha256": "1403e2bd5d67daa7bd69d9160d2918ad6118a2e4669fe81673ac59f673fd4bda"
+    },
+    {
+      "name": "exp11/code/func/obj/inst_ram.mif",
+      "bytes": 4329105,
+      "sha256": "6df24b37cffa272b3355c0a7ca8ad9b036138006bfbddb8225a7924aaf3c9d65"
+    },
+    {
+      "name": "exp11/code/func/obj/inst_ram.coe",
+      "bytes": 1180730,
+      "sha256": "0cfee06fba6ea9ee1c31ba5e27585e565fe3e728e2be39b1358053b2b7011210"
+    },
+    {
+      "name": "exp11/code/func/obj/data_ram.mif",
+      "bytes": 33,
+      "sha256": "54e1f555d80aaeeeac4552dbbdd05e67db5d70ac301df9a019afc9e90f64e92e"
+    },
+    {
+      "name": "exp11/code/func/obj/data_ram.coe",
+      "bytes": 74,
+      "sha256": "8bc44e0d7c792df9aadf8965f33e95a3ca0f22abd57867712256fa2d3151caf2"
+    },
+    {
+      "name": "exp11/code/gettrace/golden_trace.txt",
+      "bytes": 1997458,
+      "sha256": "f4f1cda7975f45f6140bb2aefd22fbb1cb1802f9fb52e5126397cbe3096818c9"
+    },
+    {
+      "name": "exp12/code/func/obj/inst_ram.mif",
+      "bytes": 4332075,
+      "sha256": "557d976c92e15f3b41c6e4ec7ea252bc1ec4475f71479902b40d97d0f9c063f5"
+    },
+    {
+      "name": "exp12/code/func/obj/inst_ram.coe",
+      "bytes": 1181540,
+      "sha256": "d35005146140c08ae02d689d92256c286b43fe556cde1899f8577878b211849c"
+    },
+    {
+      "name": "exp12/code/func/obj/data_ram.mif",
+      "bytes": 33,
+      "sha256": "54e1f555d80aaeeeac4552dbbdd05e67db5d70ac301df9a019afc9e90f64e92e"
+    },
+    {
+      "name": "exp12/code/func/obj/data_ram.coe",
+      "bytes": 74,
+      "sha256": "8bc44e0d7c792df9aadf8965f33e95a3ca0f22abd57867712256fa2d3151caf2"
+    },
+    {
+      "name": "exp12/code/gettrace/golden_trace.txt",
+      "bytes": 2003300,
+      "sha256": "49ffd3ddd798216e4c05492d0806ba7dd6fb2dae7060d8c9012c2fce6beea7db"
+    },
+    {
+      "name": "exp13/code/func/obj/inst_ram.mif",
+      "bytes": 4397217,
+      "sha256": "24e7d0ac7bee18f92d1993db5d70f18ec6868b2a763f391bcbd5199babf6b9bb"
+    },
+    {
+      "name": "exp13/code/func/obj/inst_ram.coe",
+      "bytes": 1199306,
+      "sha256": "2d424cfebb2b972fc48aa1efd2853f4ca3876a48af35ad1a7ab795dc6de5196a"
+    },
+    {
+      "name": "exp13/code/func/obj/data_ram.mif",
+      "bytes": 33,
+      "sha256": "54e1f555d80aaeeeac4552dbbdd05e67db5d70ac301df9a019afc9e90f64e92e"
+    },
+    {
+      "name": "exp13/code/func/obj/data_ram.coe",
+      "bytes": 74,
+      "sha256": "8bc44e0d7c792df9aadf8965f33e95a3ca0f22abd57867712256fa2d3151caf2"
+    },
+    {
+      "name": "exp13/code/gettrace/golden_trace.txt",
+      "bytes": 2106639,
+      "sha256": "b7e8e017d553dfba5b3b30d75ba0014e4349b3156e4e2a4b48d8b1a6ac910056"
+    },
+    {
+      "name": "exp14/code/func/obj/inst_ram.mif",
+      "bytes": 4397217,
+      "sha256": "24e7d0ac7bee18f92d1993db5d70f18ec6868b2a763f391bcbd5199babf6b9bb"
+    },
+    {
+      "name": "exp14/code/func/obj/inst_ram.coe",
+      "bytes": 1199306,
+      "sha256": "2d424cfebb2b972fc48aa1efd2853f4ca3876a48af35ad1a7ab795dc6de5196a"
+    },
+    {
+      "name": "exp14/code/func/obj/data_ram.mif",
+      "bytes": 33,
+      "sha256": "54e1f555d80aaeeeac4552dbbdd05e67db5d70ac301df9a019afc9e90f64e92e"
+    },
+    {
+      "name": "exp14/code/func/obj/data_ram.coe",
+      "bytes": 74,
+      "sha256": "8bc44e0d7c792df9aadf8965f33e95a3ca0f22abd57867712256fa2d3151caf2"
+    },
+    {
+      "name": "exp14/code/gettrace/golden_trace.txt",
+      "bytes": 2106639,
+      "sha256": "b7e8e017d553dfba5b3b30d75ba0014e4349b3156e4e2a4b48d8b1a6ac910056"
+    },
+    {
+      "name": "exp15/code/func/obj/inst_ram.mif",
+      "bytes": 4397217,
+      "sha256": "24e7d0ac7bee18f92d1993db5d70f18ec6868b2a763f391bcbd5199babf6b9bb"
+    },
+    {
+      "name": "exp15/code/func/obj/inst_ram.coe",
+      "bytes": 1199306,
+      "sha256": "2d424cfebb2b972fc48aa1efd2853f4ca3876a48af35ad1a7ab795dc6de5196a"
+    },
+    {
+      "name": "exp15/code/func/obj/data_ram.mif",
+      "bytes": 33,
+      "sha256": "54e1f555d80aaeeeac4552dbbdd05e67db5d70ac301df9a019afc9e90f64e92e"
+    },
+    {
+      "name": "exp15/code/func/obj/data_ram.coe",
+      "bytes": 74,
+      "sha256": "8bc44e0d7c792df9aadf8965f33e95a3ca0f22abd57867712256fa2d3151caf2"
+    },
+    {
+      "name": "exp15/code/gettrace/golden_trace.txt",
+      "bytes": 2106639,
+      "sha256": "b7e8e017d553dfba5b3b30d75ba0014e4349b3156e4e2a4b48d8b1a6ac910056"
+    },
+    {
+      "name": "exp16/code/func/obj/inst_ram.mif",
+      "bytes": 4397217,
+      "sha256": "24e7d0ac7bee18f92d1993db5d70f18ec6868b2a763f391bcbd5199babf6b9bb"
+    },
+    {
+      "name": "exp16/code/func/obj/inst_ram.coe",
+      "bytes": 1199306,
+      "sha256": "2d424cfebb2b972fc48aa1efd2853f4ca3876a48af35ad1a7ab795dc6de5196a"
+    },
+    {
+      "name": "exp16/code/func/obj/data_ram.mif",
+      "bytes": 33,
+      "sha256": "54e1f555d80aaeeeac4552dbbdd05e67db5d70ac301df9a019afc9e90f64e92e"
+    },
+    {
+      "name": "exp16/code/func/obj/data_ram.coe",
+      "bytes": 74,
+      "sha256": "8bc44e0d7c792df9aadf8965f33e95a3ca0f22abd57867712256fa2d3151caf2"
+    },
+    {
+      "name": "exp16/code/gettrace/golden_trace.txt",
+      "bytes": 2106639,
+      "sha256": "b7e8e017d553dfba5b3b30d75ba0014e4349b3156e4e2a4b48d8b1a6ac910056"
+    },
+    {
+      "name": "exp18/code/func/obj/inst_ram.mif",
+      "bytes": 4420845,
+      "sha256": "58a80c53effe2113f2e46f4bd09ca493e38e18ba98dc45f635f3ec256f88ce9e"
+    },
+    {
+      "name": "exp18/code/func/obj/inst_ram.coe",
+      "bytes": 1205750,
+      "sha256": "32d68b6ad6a812090985a03a22b72b302e43453095651e5effd5e3e70480b112"
+    },
+    {
+      "name": "exp18/code/func/obj/data_ram.mif",
+      "bytes": 33,
+      "sha256": "54e1f555d80aaeeeac4552dbbdd05e67db5d70ac301df9a019afc9e90f64e92e"
+    },
+    {
+      "name": "exp18/code/func/obj/data_ram.coe",
+      "bytes": 74,
+      "sha256": "8bc44e0d7c792df9aadf8965f33e95a3ca0f22abd57867712256fa2d3151caf2"
+    },
+    {
+      "name": "exp18/code/gettrace/golden_trace.txt",
+      "bytes": 2200226,
+      "sha256": "ed0811869a8ddf5743b81c0045c43117b49f793c363c8540e9e4caaa619ec247"
+    },
+    {
+      "name": "exp19/code/func/obj/inst_ram.mif",
+      "bytes": 4442097,
+      "sha256": "2998e182e22a4eac2cdb26d6c4d22e14138287bb35b3f66e32cd16b84cf6c93f"
+    },
+    {
+      "name": "exp19/code/func/obj/inst_ram.coe",
+      "bytes": 1211546,
+      "sha256": "425f68a05b6b37b78dd5bdb2e3950f1063073553b731f98bdf37372d257bb320"
+    },
+    {
+      "name": "exp19/code/func/obj/data_ram.mif",
+      "bytes": 33,
+      "sha256": "54e1f555d80aaeeeac4552dbbdd05e67db5d70ac301df9a019afc9e90f64e92e"
+    },
+    {
+      "name": "exp19/code/func/obj/data_ram.coe",
+      "bytes": 74,
+      "sha256": "8bc44e0d7c792df9aadf8965f33e95a3ca0f22abd57867712256fa2d3151caf2"
+    },
+    {
+      "name": "exp19/code/gettrace/golden_trace.txt",
+      "bytes": 2222329,
+      "sha256": "94e6b0671761643db3deb0c675cc404cee09386010d32ed6090c8c1ad62bc7cd"
+    },
+    {
+      "name": "exp21/code/func/obj/inst_ram.mif",
+      "bytes": 4442097,
+      "sha256": "2998e182e22a4eac2cdb26d6c4d22e14138287bb35b3f66e32cd16b84cf6c93f"
+    },
+    {
+      "name": "exp21/code/func/obj/inst_ram.coe",
+      "bytes": 1211546,
+      "sha256": "425f68a05b6b37b78dd5bdb2e3950f1063073553b731f98bdf37372d257bb320"
+    },
+    {
+      "name": "exp21/code/func/obj/data_ram.mif",
+      "bytes": 33,
+      "sha256": "54e1f555d80aaeeeac4552dbbdd05e67db5d70ac301df9a019afc9e90f64e92e"
+    },
+    {
+      "name": "exp21/code/func/obj/data_ram.coe",
+      "bytes": 74,
+      "sha256": "8bc44e0d7c792df9aadf8965f33e95a3ca0f22abd57867712256fa2d3151caf2"
+    },
+    {
+      "name": "exp21/code/gettrace/golden_trace.txt",
+      "bytes": 2222329,
+      "sha256": "94e6b0671761643db3deb0c675cc404cee09386010d32ed6090c8c1ad62bc7cd"
+    },
+    {
+      "name": "exp22/code/func/obj/inst_ram.mif",
+      "bytes": 4442097,
+      "sha256": "2998e182e22a4eac2cdb26d6c4d22e14138287bb35b3f66e32cd16b84cf6c93f"
+    },
+    {
+      "name": "exp22/code/func/obj/inst_ram.coe",
+      "bytes": 1211546,
+      "sha256": "425f68a05b6b37b78dd5bdb2e3950f1063073553b731f98bdf37372d257bb320"
+    },
+    {
+      "name": "exp22/code/func/obj/data_ram.mif",
+      "bytes": 33,
+      "sha256": "54e1f555d80aaeeeac4552dbbdd05e67db5d70ac301df9a019afc9e90f64e92e"
+    },
+    {
+      "name": "exp22/code/func/obj/data_ram.coe",
+      "bytes": 74,
+      "sha256": "8bc44e0d7c792df9aadf8965f33e95a3ca0f22abd57867712256fa2d3151caf2"
+    },
+    {
+      "name": "exp22/code/gettrace/golden_trace.txt",
+      "bytes": 2222329,
+      "sha256": "94e6b0671761643db3deb0c675cc404cee09386010d32ed6090c8c1ad62bc7cd"
+    },
+    {
+      "name": "exp23/code/func/obj/inst_ram.mif",
+      "bytes": 4463745,
+      "sha256": "a0e911b9fb82baf1b79410a76001880015e583511a9eea9af2efda1de0bd7cc0"
+    },
+    {
+      "name": "exp23/code/func/obj/inst_ram.coe",
+      "bytes": 1217450,
+      "sha256": "0ee2c857dec276693f02350c6b717079159c502e818e8752442e1efb97cc71d1"
+    },
+    {
+      "name": "exp23/code/func/obj/data_ram.mif",
+      "bytes": 33,
+      "sha256": "54e1f555d80aaeeeac4552dbbdd05e67db5d70ac301df9a019afc9e90f64e92e"
+    },
+    {
+      "name": "exp23/code/func/obj/data_ram.coe",
+      "bytes": 74,
+      "sha256": "8bc44e0d7c792df9aadf8965f33e95a3ca0f22abd57867712256fa2d3151caf2"
+    },
+    {
+      "name": "exp23/code/gettrace/golden_trace.txt",
+      "bytes": 2239671,
+      "sha256": "7e7b5897a3e871759cebe629de9d6336f56f4fe93dbb4f23cd96c43d0a47f679"
+    }
+  ],
+  "rawBytes": 112288031,
+  "bundleBytes": 14208919,
+  "fileCount": 80
+}

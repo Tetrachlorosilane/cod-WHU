@@ -56,11 +56,20 @@ cod-WHU.github.io/
 | 原 Verilog 仿真 / Vivado 综合上板 | ✅ **受影响** | `create_project.tcl` 执行 `add_files [glob ../rtl/xilinx_ip/*/*.xci]`（本站 `.xci` 数量为 0）；`clk_pll` 等 IP 也缺失 |
 
 缺失的运行件：每实验 5 个文件（`func/obj/{inst_ram,data_ram}.{mif,coe}` + `gettrace/golden_trace.txt`），
-共 **80 个文件 107 MB**（gzip 后约 **13.5 MB**）。三种获取方式：
+共 **80 个文件 107 MB**。本仓库已把它打包为 **`assets/sim-assets.tar.gz`（13.6 MB）**：
 
-1. 从主仓库 `taskvscode/expN/` 直接拷贝对应文件（推荐，零风险）；
-2. 用 LoongArch 工具链在 `func/` 下 `make` 重新生成 `.mif/.coe`，用 gettrace 工程重新生成 `golden_trace.txt`；
-3. 由主仓库打一个 `sim-assets.tar.gz`（约 13.5 MB）随站点提供，并附解包脚本写入 `expN/code/func/obj/` 与 `expN/code/gettrace/`。
+```bash
+node tools/unpack-assets.mjs           # 解包到仓库根（路径已对齐 expN/code/...）
+node tools/unpack-assets.mjs --check   # 只校验 sha256，不写文件
+node tools/unpack-assets.mjs --dest D  # 解包到指定目录
+```
+
+- 解包后文件落在 `expN/code/func/obj/` 与 `expN/code/gettrace/`，这些路径已在 `.gitignore` 中，
+  **不会污染仓库**（`git status` 保持干净）。
+- 清单与哈希见 `assets/sim-assets.manifest.json`（80 个文件的 sha256 + 体积）。
+- 另外两种获取方式：① 从主仓库 `taskvscode/expN/` 直接拷贝；
+  ② 用 LoongArch 工具链在 `func/` 下 `make` 重新生成 `.mif/.coe`，
+  并用 gettrace 工程重新生成 `golden_trace.txt`。
 
 > 需要**完整可运行**的实验环境（含 Vivado 工程与生成物）时，请使用主仓库
 > `taskvscode/expN/`（本仓库的 `expN/code`、`expN/chisel` 即从中按上表筛选而来）。
