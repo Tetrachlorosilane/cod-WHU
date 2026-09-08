@@ -7,7 +7,7 @@
 //
 // 作用：
 //   1. 把站点里的 .md 渲染成 HTML，页面组成**对标**参考站点
-//      （南京大学 dlco-lecture-note：左侧任务导航 + 右侧内容 + 底部上一页/下一页）；
+//      （左侧任务导航 + 右侧内容 + 底部上一页/下一页）；
 //   2. 非 .md 文件（含 junction 后的 .scala/.v/任务说明）按原样静态服务，
 //      用于验证"软链接展开到 markdown"里的链接确实可达；
 //   3. 极简 markdown 渲染器（标题/列表/表格/代码块/引用/链接/行内代码），
@@ -168,7 +168,7 @@ function shell(title, bodyHtml, relPrefix) {
 <body><div class="wrap">
 <aside>
   <h1>计算机组成原理实践任务4Chisel</h1>
-  <p>Chisel 版 ｜ 页面组成参照 NJU dlco-lecture-note</p>
+  <p>Chisel 版 ｜ 基于《CPU 设计实战：LoongArch 版》</p>
   <ol>
 ${nav}
   </ol>

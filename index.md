@@ -6,8 +6,15 @@ nav_order: 0
 
 # 计算机组成原理实践任务4Chisel
 
-> 站点结构参照 [南京大学《数字逻辑与计算机组成》课程实验](https://nju-projectn.github.io/dlco-lecture-note/index.html)
-> 的页面组成：**首页（任务清单）+ 每个任务独立页面**；每个任务页含目标 / 内容 / 关键代码 / 待操作代码 / 验收 / 参考。
+> 本站点把《CPU 设计实战：LoongArch 版》的 23 个实践任务整理为独立页面：
+> **首页（任务清单）+ 每个任务独立页面**；每个任务页含目标 / 内容 / 关键代码 / 待操作代码 / 验收 / 参考。
+
+## 贡献与致谢
+
+| 贡献 | 说明 |
+|---|---|
+| [Verilog to Chisel（黄治豪）](https://zihaojf.github.io/Chisel-/chisel/%E7%AE%80%E4%BB%8B/) | Chisel 入门与五级流水线写法参考 |
+| [CPU 设计实战：LoongArch 版](https://bookdown.org/loongson/_book3/)（汪文祥、邢金璋 等著） | 实践任务与原始 Verilog 实验工程来源 |
 
 ## 实践任务清单
 
@@ -49,6 +56,6 @@ nav_order: 0
 
 ## 许可与来源
 
-- 实践任务与原始 Verilog 代码来源：《CPU 设计实战：LoongArch 版》配套实验工程。
+- 实践任务与原始 Verilog 代码来源：《CPU 设计实战：LoongArch 版》（汪文祥、邢金璋 等著）配套实验工程。
 - Chisel 改写版：`exp5~exp23` 的 `chisel/`，改写规范见 [CHISEL-CONVENTIONS.md](CHISEL-CONVENTIONS.md)。
-- 站点排版参考：南京大学课程实验站点（Sphinx + Read the Docs 主题）。
+- Chisel 写法参考：[Verilog to Chisel（黄治豪）](https://zihaojf.github.io/Chisel-/chisel/%E7%AE%80%E4%BB%8B/)。

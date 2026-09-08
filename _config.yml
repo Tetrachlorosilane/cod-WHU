@@ -1,5 +1,5 @@
 # GitHub Pages / Jekyll 配置
-# 页面组成参照 NJU dlco-lecture-note（Sphinx + Read the Docs 主题）：
+# 站点为任务清单 + 每任务独立页面的文档布局：
 # 首页列任务清单，每个任务独立页面，页面内有标题/目标/内容/代码/验收/参考。
 #
 # 本站采用 just-the-docs 的侧边栏文档布局（remote_theme）：
