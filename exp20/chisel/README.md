@@ -12,6 +12,8 @@ objectives:
   - 实现 2 路组相联、每路 4KB、行 16B 的 Cache
   - 实现 rd 填充与脏行 wr 写回
   - 每个 index 先写后读直到 0xff → PASS
+layout: default
+nav_exclude: true
 ---
 
 # exp20 Chisel 版实验环境（实践任务20：Cache 模块设计）

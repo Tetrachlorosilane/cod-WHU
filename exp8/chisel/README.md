@@ -12,6 +12,8 @@ objectives:
   - 检测 RAW 数据相关
   - 用阻塞（stall）消除相关
   - 跑通 exp8 的 golden_trace
+layout: default
+nav_exclude: true
 ---
 
 # exp8 Chisel 版实验环境（实践任务8：阻塞技术解决相关引发的冲突）

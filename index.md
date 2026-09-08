@@ -2,7 +2,6 @@
 layout: default
 title: 首页
 nav_order: 0
-has_children: true
 ---
 
 # 计算机组成原理实践任务4Chisel

@@ -104,23 +104,32 @@ function renderMarkdown(md) {
 }
 
 // ------------------------------ 页面外壳（对标参考站点） ------------------------------
+// 侧边栏顺序（与线上 just-the-docs 一致）：
+//   首页 → 实践任务1~23 → 改写规范 → 附录（来源与许可 / 对标审计 / 子页索引）
 function navItems() {
-  const out = [];
+  const out = [{ href: 'index.md', title: '首页', depth: 0 }];
   for (let n = 1; n <= 23; n++) {
     const p = join(SITE, `exp${n}`, 'index.md');
     let title = `实践任务${n}`;
     if (existsSync(p)) {
-      const t = readFileSync(p, 'utf8').match(/^title:\s*(.+)$/m);
+      const t = readFileSync(p, 'utf8').match(/^nav_title:\s*(.+)$/m);
       if (t) title = t[1].trim();
     }
-    out.push({ n, title });
+    out.push({ href: `exp${n}/index.md`, title, depth: 0 });
   }
+  out.push({ href: 'CHISEL-CONVENTIONS.md', title: '改写规范', depth: 0 });
+  out.push({ href: '附录.md', title: '附录', depth: 0 });
+  for (const [href, title] of [
+    ['LICENSE-NOTICE.md', '来源与许可'],
+    ['对标审计.md', '对标审计'],
+    ['子页索引.md', '子页索引'],
+  ]) out.push({ href, title, depth: 1 });
   return out;
 }
 
 function shell(title, bodyHtml, relPrefix) {
-  const nav = navItems().map(({ n, title }) =>
-    `<li><a href="${relPrefix}exp${n}/index.md">${esc(title)}</a></li>`).join('\n');
+  const nav = navItems().map(({ href, title, depth }) =>
+    `<li class="d${depth}"><a href="${relPrefix}${encodeURI(href)}">${esc(title)}</a></li>`).join('\n');
   return `<!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -135,6 +144,7 @@ function shell(title, bodyHtml, relPrefix) {
   aside p { font-size:12px; color:var(--muted); margin:0 0 14px; }
   aside ol { padding-left:22px; margin:0; }
   aside li { margin:5px 0; font-size:13.5px; }
+  aside li.d1 { margin-left:16px; font-size:12.8px; }
   aside a { color:var(--link); text-decoration:none; }
   aside a:hover { text-decoration:underline; }
   main { flex:1; min-width:0; padding:28px 40px 80px; max-width:960px; }

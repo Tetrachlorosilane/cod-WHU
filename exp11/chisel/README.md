@@ -12,6 +12,8 @@ objectives:
   - 新增 blt/bge/bltu/bgeu
   - 新增 ld.b/h/bu/hu、st.b/h 与字节使能
   - 跑通 exp11 的 golden_trace
+layout: default
+nav_exclude: true
 ---
 
 # exp11 Chisel 版实验环境（实践任务11：转移指令和访存指令添加）

@@ -5,6 +5,8 @@ doc: mapping
 baseline: taskvscode/exp21/code/
 ver: agent-1.0
 intent: 从零实现
+layout: default
+nav_exclude: true
 ---
 
 # exp21 Verilog ↔ Chisel 对照表

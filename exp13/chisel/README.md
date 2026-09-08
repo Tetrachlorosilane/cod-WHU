@@ -12,6 +12,8 @@ objectives:
   - 新增 ADEF/ALE/BRK/INE 例外
   - 新增 ECFG/BADV/TID/TCFG/TVAL/TICLR 与中断仲裁
   - 新增 rdcntvl.w/rdcntvh.w/rdcntid
+layout: default
+nav_exclude: true
 ---
 
 # exp13 Chisel 版实验环境（实践任务13：添加其它异常支持）

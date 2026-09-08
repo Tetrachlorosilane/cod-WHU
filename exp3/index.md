@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务3 · 同步 RAM 和异步 RAM 仿真、综合与实现
-parent: 实践任务
+nav_title: 实践任务3 同步 RAM 和异步 RAM 仿真、综合与实现
 nav_order: 3
 ---
 

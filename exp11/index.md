@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务11 · 转移指令和访存指令添加
-parent: 实践任务
+nav_title: 实践任务11 转移指令和访存指令添加
 nav_order: 11
 ---
 

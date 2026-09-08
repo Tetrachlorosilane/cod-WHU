@@ -12,6 +12,8 @@ objectives:
   - 实现 IF/ID/EX/MEM/WB 五级流水线
   - 处理 block RAM 同步读的时序
   - 跑通 exp7 的 golden_trace
+layout: default
+nav_exclude: true
 ---
 
 # exp7 Chisel 版实验环境（实践任务7：不考虑相关冲突处理的简单流水线 CPU）

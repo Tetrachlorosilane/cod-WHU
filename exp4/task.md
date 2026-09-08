@@ -1,3 +1,8 @@
+---
+layout: default
+nav_exclude: true
+---
+
 ### 3.1.3 实践任务4：数字逻辑电路的设计与调试
 
 本实践任务要求：

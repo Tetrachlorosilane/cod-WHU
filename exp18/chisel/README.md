@@ -12,6 +12,8 @@ objectives:
   - 集成 exp17 的 TLB
   - 新增 TLBSRCH/TLBRD/TLBWR/TLBFILL/INVTLB
   - 新增 TLBIDX/TLBEHI/TLBELO0/1/ASID/TLBRENTRY
+layout: default
+nav_exclude: true
 ---
 
 # exp18 Chisel 版实验环境（实践任务18：添加 TLB 相关指令和 CSR 寄存器）

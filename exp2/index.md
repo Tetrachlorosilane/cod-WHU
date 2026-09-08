@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务2 · 寄存器堆仿真
-parent: 实践任务
+nav_title: 实践任务2 寄存器堆仿真
 nav_order: 2
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务4 · 数字逻辑电路的设计与调试
-parent: 实践任务
+nav_title: 实践任务4 数字逻辑电路的设计与调试
 nav_order: 4
 ---
 

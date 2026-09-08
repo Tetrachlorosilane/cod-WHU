@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务18 · 添加 TLB 相关指令和 CSR 寄存器
-parent: 实践任务
+nav_title: 实践任务18 添加 TLB 相关指令和 CSR 寄存器
 nav_order: 18
 ---
 

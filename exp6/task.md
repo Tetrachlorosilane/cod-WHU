@@ -1,3 +1,8 @@
+---
+layout: default
+nav_exclude: true
+---
+
 ### 4.3.2 实践任务6：20条指令单周期CPU（Chisel 版）
 
 > **本说明已改写为 Chisel 版。** 原书（Verilog 版）的同一节说明保留在

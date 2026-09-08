@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务6 · 20 条指令单周期 CPU
-parent: 实践任务
+nav_title: 实践任务6 20 条指令单周期 CPU
 nav_order: 6
 ---
 

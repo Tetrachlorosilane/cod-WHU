@@ -12,6 +12,8 @@ objectives:
   - 找出并修复 7 处功能错误（alu 4 处 + mycpu_top 3 处）
   - 用 golden_trace 逐条比对定位错误
   - 修复后通过 9776 条 trace 比对
+layout: default
+nav_exclude: true
 ---
 
 # exp6 Chisel 版实验环境（实践任务6：20 条指令单周期 CPU）

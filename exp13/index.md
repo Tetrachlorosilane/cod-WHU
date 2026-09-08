@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务13 · 添加其它异常支持
-parent: 实践任务
+nav_title: 实践任务13 添加其它异常支持
 nav_order: 13
 ---
 

@@ -12,6 +12,8 @@ objectives:
   - 新增 slti/sltui/andi/ori/xori/sll/srl/sra/pcaddu12i
   - 新增 mul/mulh/div/mod 共 7 条
   - 区分 si12 与 ui12 的扩展方式
+layout: default
+nav_exclude: true
 ---
 
 # exp10 Chisel 版实验环境（实践任务10：算术逻辑运算指令和乘除法运算指令添加）

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务14 · 添加类 SRAM 总线支持
-parent: 实践任务
+nav_title: 实践任务14 添加类 SRAM 总线支持
 nav_order: 14
 ---
 

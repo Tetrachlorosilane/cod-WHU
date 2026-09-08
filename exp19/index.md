@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务19 · 添加 TLB 相关例外支持
-parent: 实践任务
+nav_title: 实践任务19 添加 TLB 相关例外支持
 nav_order: 19
 ---
 

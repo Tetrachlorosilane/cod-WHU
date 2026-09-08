@@ -12,6 +12,8 @@ objectives:
   - 新增 DMW0~3 与虚实地址映射
   - 实现 TLBR/PIL/PIS/PME/PPI 五类例外
   - 跑通 exp19 的 golden_trace
+layout: default
+nav_exclude: true
 ---
 
 # exp19 Chisel 版实验环境（实践任务19：添加 TLB 相关例外支持）

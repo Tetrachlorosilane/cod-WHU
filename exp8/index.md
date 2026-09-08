@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务8 · 阻塞技术解决相关引发的冲突
-parent: 实践任务
+nav_title: 实践任务8 阻塞技术解决相关引发的冲突
 nav_order: 8
 ---
 

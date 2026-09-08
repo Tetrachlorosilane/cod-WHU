@@ -11,6 +11,9 @@ objectives:
   - 知道每个实验该保留什么（填空/找错/骨架）与不该改什么（code/、保真目录）
   - 能按统一命名与编码规则读懂并续写任意一个 expN/chisel/
   - 能用一条命令复现静态验收结论
+layout: default
+nav_title: 改写规范
+nav_order: 30
 ---
 
 # Chisel 改写规范（Verilog → Chisel 对照改写约定）

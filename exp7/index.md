@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务7 · 不考虑相关冲突处理的简单流水线 CPU
-parent: 实践任务
+nav_title: 实践任务7 不考虑相关冲突处理的简单流水线 CPU
 nav_order: 7
 ---
 

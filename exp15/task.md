@@ -1,3 +1,8 @@
+---
+layout: default
+nav_exclude: true
+---
+
 ### 8.1.2 实践任务15：添加AXI总线支持（Chisel 版）
 
 > **本说明已改写为 Chisel 版。** 原书（Verilog 版）的同一节说明保留在

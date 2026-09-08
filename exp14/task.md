@@ -1,3 +1,8 @@
+---
+layout: default
+nav_exclude: true
+---
+
 ### 8.1.1 实践任务14：添加类SRAM总线支持（Chisel 版）
 
 > **本说明已改写为 Chisel 版。** 原书（Verilog 版）的同一节说明保留在

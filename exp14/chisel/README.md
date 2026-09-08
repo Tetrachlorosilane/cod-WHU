@@ -12,6 +12,8 @@ objectives:
   - 把访存接口改为 req/wr/size/wstrb/addr/wdata + addr_ok/data_ok/rdata
   - 实现握手未完成时的流水线互锁
   - 跑通 exp14 的 golden_trace
+layout: default
+nav_exclude: true
 ---
 
 # exp14 Chisel 版实验环境（实践任务14：添加类 SRAM 总线支持）

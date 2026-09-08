@@ -1,3 +1,8 @@
+---
+layout: default
+nav_exclude: true
+---
+
 ### 6.1.1 实践任务10：算术逻辑运算指令和乘除法运算指令添加（Chisel 版）
 
 > **本说明已改写为 Chisel 版。** 原书（Verilog 版）的同一节说明保留在

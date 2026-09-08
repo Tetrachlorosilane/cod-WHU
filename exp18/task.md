@@ -1,3 +1,8 @@
+---
+layout: default
+nav_exclude: true
+---
+
 ### 9.2.2 实践任务18：添加TLB相关指令和CSR寄存器（Chisel 版）
 
 > **本说明已改写为 Chisel 版。** 原书（Verilog 版）的同一节说明保留在

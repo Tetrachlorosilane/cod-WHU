@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务22 · CPU 中集成 DCache
-parent: 实践任务
+nav_title: 实践任务22 CPU 中集成 DCache
 nav_order: 22
 ---
 

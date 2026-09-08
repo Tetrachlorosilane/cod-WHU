@@ -12,6 +12,8 @@ objectives:
   - 把 Cache 接进取指通路
   - AXI 读改为 Burst（arlen=3）
   - miss 时停顿取指并跑通 golden_trace
+layout: default
+nav_exclude: true
 ---
 
 # exp21 Chisel 版实验环境（实践任务21：在 CPU 中集成 ICache）

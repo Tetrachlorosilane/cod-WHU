@@ -12,6 +12,8 @@ objectives:
   - 译码 cacop code, rj, si12
   - 按 code[4:3] 选择 ICache/DCache 与按地址/按索引
   - 跑通 exp23 的 golden_trace
+layout: default
+nav_exclude: true
 ---
 
 # exp23 Chisel 版实验环境（实践任务23：CPU 中添加 CACOP 指令）

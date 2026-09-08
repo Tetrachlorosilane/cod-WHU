@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务21 · 在 CPU 中集成 ICache
-parent: 实践任务
+nav_title: 实践任务21 在 CPU 中集成 ICache
 nav_order: 21
 ---
 

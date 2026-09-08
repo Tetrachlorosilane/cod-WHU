@@ -1,3 +1,10 @@
+---
+layout: default
+title: 来源与许可
+parent: 附录
+nav_order: 1
+---
+
 # 来源与许可说明
 
 本仓库是**实践任务站点**，内容来源如下：

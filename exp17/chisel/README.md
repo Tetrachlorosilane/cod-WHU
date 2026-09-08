@@ -12,6 +12,8 @@ objectives:
   - 实现 16 项 TLB 表项存储与读写端口
   - 实现双查找端口（含 G 位与 va_bit12）
   - 通过 16 写 / 16 读 / 26 查 → PASS
+layout: default
+nav_exclude: true
 ---
 
 # exp17 Chisel 版实验环境（实践任务17：TLB 模块设计）

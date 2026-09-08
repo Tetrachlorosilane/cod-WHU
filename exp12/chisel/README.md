@@ -12,6 +12,8 @@ objectives:
   - 新增 csrrd/csrwr/csrxchg/ertn
   - 新增 CRMD/PRMD/ESTAT/ERA/EENTRY/SAVE0~3
   - 实现 syscall 例外与 ertn 返回
+layout: default
+nav_exclude: true
 ---
 
 # exp12 Chisel 版实验环境（实践任务12：添加系统调用异常支持）

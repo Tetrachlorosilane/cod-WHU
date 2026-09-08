@@ -12,6 +12,8 @@ objectives:
   - 在随机延迟下保持请求与等待语义
   - 按 ID 匹配返回数据
   - 跑通 exp16 的 golden_trace
+layout: default
+nav_exclude: true
 ---
 
 # exp16 Chisel 版实验环境（实践任务16：完成 AXI 随机延迟验证）

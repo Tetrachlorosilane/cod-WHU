@@ -1,3 +1,8 @@
+---
+layout: default
+nav_exclude: true
+---
+
 ### 3.1.2 实践任务3：同步RAM和异步RAM仿真、综合与实现
 
 本实践任务要求：

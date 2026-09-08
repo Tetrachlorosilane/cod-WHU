@@ -12,6 +12,8 @@ objectives:
   - 实现 EX/MEM、MEM/WB 前递通路
   - 处理 load-use 相关
   - 跑通 exp9 的 golden_trace 并减少周期数
+layout: default
+nav_exclude: true
 ---
 
 # exp9 Chisel 版实验环境（实践任务9：前递技术解决相关引发的冲突）

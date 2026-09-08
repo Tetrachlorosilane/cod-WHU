@@ -12,6 +12,8 @@ objectives:
   - CPU 直接产生 AXI4 五通道
   - 实现读写事务状态机与 ID 管理
   - 跑通 exp15 的 golden_trace
+layout: default
+nav_exclude: true
 ---
 
 # exp15 Chisel 版实验环境（实践任务15：添加 AXI 总线支持）

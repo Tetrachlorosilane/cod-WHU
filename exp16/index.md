@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务16 · 完成 AXI 随机延迟验证
-parent: 实践任务
+nav_title: 实践任务16 完成 AXI 随机延迟验证
 nav_order: 16
 ---
 

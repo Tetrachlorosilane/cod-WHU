@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务20 · Cache 模块设计
-parent: 实践任务
+nav_title: 实践任务20 Cache 模块设计
 nav_order: 20
 ---
 

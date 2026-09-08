@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务10 · 算术逻辑运算指令和乘除法运算指令添加
-parent: 实践任务
+nav_title: 实践任务10 算术逻辑运算指令和乘除法运算指令添加
 nav_order: 10
 ---
 

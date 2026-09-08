@@ -1,3 +1,8 @@
+---
+layout: default
+nav_exclude: true
+---
+
 ### 3.1.1 实践任务2：寄存器堆仿真
 
 本实践任务要求：

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务1 · 跑马灯
-parent: 实践任务
+nav_title: 实践任务1 跑马灯
 nav_order: 1
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 实践任务23 · CPU 中添加 CACOP 指令
-parent: 实践任务
+nav_title: 实践任务23 CPU 中添加 CACOP 指令
 nav_order: 23
 ---
 

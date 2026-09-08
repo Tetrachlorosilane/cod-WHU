@@ -12,6 +12,8 @@ objectives:
   - 把 Cache 接入访存通路
   - 实现写命中/写分配与脏行写回
   - 跑通 exp22 的 golden_trace
+layout: default
+nav_exclude: true
 ---
 
 # exp22 Chisel 版实验环境（实践任务22：CPU 中集成 DCache）

@@ -12,6 +12,8 @@ objectives:
   - 补全 9 处空位（6 条 assign + regfile 3 个引脚）
   - 理解单周期数据通路：取指→译码→执行→访存→写回
   - 通过斐波那契程序断言 led = ~f(n)
+layout: default
+nav_exclude: true
 ---
 
 # exp5 Chisel 版实验环境（实践任务5：5 条指令单周期 CPU）
