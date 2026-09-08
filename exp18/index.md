@@ -373,6 +373,7 @@ class SocLiteTop(
 | 原实验判据 | `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!` |
 | Chisel 版判据 | TraceHarness：golden_trace 逐条比对 |
 | 运行方式 | `cd chisel && ./mill chisel.test`（需 JDK 17 + Mill） |
+| 运行所需运行件 | 本实验的 Chisel 测试会读取 `code/func/obj/inst_ram.mif`、`code/func/obj/data_ram.mif` 与 `code/gettrace/golden_trace.txt`，**这三类运行件未收录在本站仓库**（体积 107MB，见 README §2）；请从主仓库 `taskvscode/exp18/` 获取，否则 `MifLoader`/`TraceLoader` 会直接报"找不到 .mif / golden_trace.txt" |
 | ⚠️ 未实测 | Chisel 代码为静态交付，未编译/仿真；逐行对照见 `chisel/MAPPING.md` |
 
 ## 参考

@@ -44,9 +44,26 @@ cod-WHU.github.io/
 | 约束与脚本（`.xdc/.tcl/.sh`）、`func/` 源码（`.c/.h/.s`） | Vivado 工程与二进制（`.xpr/.xci/.dcp/.bit/.rpt/.jou/.log`…） |
 | 单文件 ≤ 512 KB 的文本 | 图片/压缩包等二进制 |
 
-- 目的：站点体积可控（全库约 **10 MB** 量级），克隆快、Pages 构建快。
-- 需要**完整可运行**的实验环境（含 Vivado 工程与生成物）时，请使用主仓库的
-  `taskvscode/expN/`（本仓库的 `expN/code`、`expN/chisel` 即从中按上表筛选而来）。
+- 目的：站点体积可控（全库约 **23 MB**），克隆快、Pages 构建快。
+
+### 2.1 对"能不能跑仿真"的影响（重要）
+
+| 流程 | 是否受影响 | 说明 |
+|---|---|---|
+| 浏览本站页面 | ❌ 不受影响 | 代码片段已内嵌；链接指向站内真实副本 |
+| Chisel 仿真 **exp5 / exp17 / exp20** | ❌ 不受影响 | exp5 用内嵌常量表（`InstRamProgram`）；exp17/exp20 是模块级环境，判据只用激励 |
+| Chisel 仿真 **exp6~exp16、exp18/19、exp21~23** | ✅ **受影响** | 测试会读 `code/func/obj/inst_ram.mif`、`code/func/obj/data_ram.mif`、`code/gettrace/golden_trace.txt`；缺失时 `MifLoader`/`TraceLoader` 的 `require(Files.exists(...))` 直接报"找不到 .mif / golden_trace.txt" |
+| 原 Verilog 仿真 / Vivado 综合上板 | ✅ **受影响** | `create_project.tcl` 执行 `add_files [glob ../rtl/xilinx_ip/*/*.xci]`（本站 `.xci` 数量为 0）；`clk_pll` 等 IP 也缺失 |
+
+缺失的运行件：每实验 5 个文件（`func/obj/{inst_ram,data_ram}.{mif,coe}` + `gettrace/golden_trace.txt`），
+共 **80 个文件 107 MB**（gzip 后约 **13.5 MB**）。三种获取方式：
+
+1. 从主仓库 `taskvscode/expN/` 直接拷贝对应文件（推荐，零风险）；
+2. 用 LoongArch 工具链在 `func/` 下 `make` 重新生成 `.mif/.coe`，用 gettrace 工程重新生成 `golden_trace.txt`；
+3. 由主仓库打一个 `sim-assets.tar.gz`（约 13.5 MB）随站点提供，并附解包脚本写入 `expN/code/func/obj/` 与 `expN/code/gettrace/`。
+
+> 需要**完整可运行**的实验环境（含 Vivado 工程与生成物）时，请使用主仓库
+> `taskvscode/expN/`（本仓库的 `expN/code`、`expN/chisel` 即从中按上表筛选而来）。
 
 ## 3. 代码如何进入 markdown
 

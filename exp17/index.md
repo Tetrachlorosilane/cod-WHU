@@ -347,6 +347,7 @@ class TlbTop(
 | 原实验判据 | `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!` |
 | Chisel 版判据 | TlbSpec：16 写 / 16 读 / 26 查 → ----PASS!!! |
 | 运行方式 | `cd chisel && ./mill chisel.test`（需 JDK 17 + Mill） |
+| 运行所需运行件 | 本实验**不需要**外部运行件（exp5 用内嵌常量表；exp17/exp20 为模块级环境） |
 | ⚠️ 未实测 | Chisel 代码为静态交付，未编译/仿真；逐行对照见 `chisel/MAPPING.md` |
 
 ## 参考
