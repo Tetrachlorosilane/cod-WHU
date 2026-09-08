@@ -1,6 +1,6 @@
 ---
 doc: conventions
-title: Chisel 改写规范（Verilog → Chisel 对照改写约定）
+title: 改写规范
 scope: taskvscode/exp5 ~ exp23
 source: taskvscode/*/code/（原 Verilog 实验环境，未改动）+ output/
 source_url: https://bookdown.org/loongson/_book3/
@@ -12,7 +12,6 @@ objectives:
   - 能按统一命名与编码规则读懂并续写任意一个 expN/chisel/
   - 能用一条命令复现静态验收结论
 layout: default
-nav_title: 改写规范
 nav_order: 30
 ---
 
