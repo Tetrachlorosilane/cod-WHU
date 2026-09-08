@@ -7,6 +7,9 @@
 
 ## 1. 仓库结构
 
+> 仓库：https://github.com/Tetrachlorosilane/cod-WHU （原名 `cod-WHU.github.io`）。
+> 本地目录名沿用 `cod-WHU.github.io/`，不影响仓库地址。
+
 ```text
 cod-WHU.github.io/
 ├── index.md                  # 首页：23 个实践任务清单
@@ -97,16 +100,23 @@ node tools/check.mjs              # 自检：23 个任务页 / 全部相对链�
 
 ## 5. 发布到 GitHub Pages
 
-仓库名即 `cod-WHU.github.io`（用户/组织站点），因此**根目录即为站点根**：
+本仓库地址：**https://github.com/Tetrachlorosilane/cod-WHU**（原名 `cod-WHU.github.io`，已改名）。
+由于仓库名不是 `<用户名>.github.io`，它发布为**项目站点**，访问地址为：
 
-1. `git init && git add -A && git commit -m "site: 实践任务页面"`
-2. `git remote add origin git@github.com:<owner>/cod-WHU.github.io.git`
-3. `git push -u origin main`
-4. 仓库 **Settings → Pages**：Source 选择 `Deploy from a branch`，分支 `main`、目录 `/`。
+    https://tetrachlorosilane.github.io/cod-WHU/
 
-- Jekyll 默认处理 `.md`（本仓库 `_config.yml` 使用白名单主题 `jekyll-theme-minimal`）；
-  想要更接近参考站点的**侧边栏文档布局**，把 `_config.yml` 里注释掉的
-  `remote_theme: just-the-docs/just-the-docs` 方案打开即可。
+启用步骤：
+
+1. 仓库 **Settings → Pages**；
+2. Source 选择 **Deploy from a branch**；
+3. Branch 选 **`main`**、目录 **`/ (root)`** → Save；
+4. 等 Actions 里的 `pages build and deployment` 跑完即可访问上面的地址。
+
+> 若要改用根域名 `https://tetrachlorosilane.github.io/`，需要把仓库改名为
+> `Tetrachlorosilane.github.io`（或把内容迁到该仓库）。
+
+- `_config.yml` 使用 `remote_theme: just-the-docs/just-the-docs`（侧边栏文档布局，
+  最接近参考站点的观感）；侧边栏抬头取自 `title`，侧边导航取自各 `.md` 的 front matter。
 - 请**不要**添加 `.nojekyll`，否则 `.md` 不会渲染成页面。
 
 ## 6. 来源与许可
