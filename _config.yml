@@ -9,12 +9,9 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
-# 方案 A（默认，零依赖）：GitHub Pages 白名单主题
-theme: jekyll-theme-minimal
 
-# 方案 B（更接近参考站点的侧边栏文档布局）：需要 jekyll-remote-theme
-# remote_theme: just-the-docs/just-the-docs
-# plugins:
-#   - jekyll-remote-theme
-# search_enabled: false
-# nav_sort: case_insensitive
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
+search_enabled: false
+nav_sort: case_insensitive
