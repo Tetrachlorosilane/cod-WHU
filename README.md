@@ -1,4 +1,4 @@
-# cod-WHU.github.io
+# cod-WHU
 
 计算机组成原理**实践任务站点**（Chisel 版）。页面组成参照
 [南京大学《数字逻辑与计算机组成》课程实验](https://nju-projectn.github.io/dlco-lecture-note/index.html)：
