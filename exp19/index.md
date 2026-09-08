@@ -11,7 +11,7 @@ nav_order: 19
 
 > **任务类型**：从零实现 ｜ **待操作代码**：17 处
 >
-> **代码目录**：`code/`（原 Verilog 实验环境，软链接） ｜ `chisel/`（Chisel 版，软链接）
+> **代码目录**：`code/`（本站收录的原 Verilog 源码） ｜ `chisel/`（本站收录的 Chisel 版环境）
 
 ## 实验目标
 
@@ -24,7 +24,7 @@ nav_order: 19
 
 ### `MyCpuTop.scala`（学生模块接口骨架）
 
-> 源文件：[chisel/src/main/scala/exp19/student/MyCpuTop.scala](chisel/src/main/scala/exp19/student/MyCpuTop.scala)（软链接到 `taskvscode/exp19/chisel/…`）
+> 源文件：[chisel/src/main/scala/exp19/student/MyCpuTop.scala](chisel/src/main/scala/exp19/student/MyCpuTop.scala)（本站内副本）
 
 ```scala
 // SPDX-License-Identifier: BSD-3-Clause

@@ -11,7 +11,7 @@ nav_order: 2
 
 > **任务类型**：Verilog 版（Chisel 改写自 exp5 起）
 >
-> **代码目录**：`code/`（原 Verilog 实验环境，软链接）
+> **代码目录**：`code/`（本站收录的原 Verilog 源码）
 
 ## 实验目标
 

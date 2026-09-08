@@ -40,15 +40,16 @@ has_children: true
 
 每个 `expN/` 子目录包含：
 
-- `index.md`：实践任务说明（本页的详情页）；
-- `code/`：**目录软链接（junction）** → `taskvscode/expN/code`，原 Verilog 实验环境；
-- `chisel/`：**目录软链接（junction）** → `taskvscode/expN/chisel`，Chisel 版环境（exp5 起）。
+- `index.md`：实践任务页（实验目标 / 关键代码 / 待操作代码 / 实验验收 / 参考）；
+- `task.md`：原任务说明（已改写为 Chisel 版）；
+- `code/`：本站收录的**原 Verilog 源码子集**（RTL/测试/约束/func 源码；不含生成物与 Vivado 工程）；
+- `chisel/`：本站收录的 **Chisel 版环境**（学生骨架 + SoC + 测试 + 文档，exp5 起）。
 
-> 软链接不复制字节：修改 `taskvscode/` 下的源文件，站点里的代码同步更新；
-> markdown 中内嵌的代码片段由 `node tools/build_site.mjs` 重新生成（见 [README.md](README.md)）。
+> 收录策略与排除清单见 [README.md](README.md) §2 与 [.gitignore](.gitignore)；
+> markdown 中内嵌的代码片段由生成脚本从源文件重新生成（见 [README.md](README.md) §3）。
 
 ## 许可与来源
 
-- 实践任务与原始 Verilog 代码来源：《CPU 设计实战：LoongArch 版》配套实验工程（`output/`）。
-- Chisel 改写版：本仓库 `taskvscode/exp5~exp23`，改写规范见 [CHISEL-CONVENTIONS.md](CHISEL-CONVENTIONS.md)。
+- 实践任务与原始 Verilog 代码来源：《CPU 设计实战：LoongArch 版》配套实验工程。
+- Chisel 改写版：`exp5~exp23` 的 `chisel/`，改写规范见 [CHISEL-CONVENTIONS.md](CHISEL-CONVENTIONS.md)。
 - 站点排版参考：南京大学课程实验站点（Sphinx + Read the Docs 主题）。
