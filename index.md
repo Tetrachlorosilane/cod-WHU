@@ -5,7 +5,7 @@ nav_order: 0
 has_children: true
 ---
 
-# 计算机组成原理实践任务（Chisel 版）
+# 计算机组成原理实践任务4Chisel
 
 > 站点结构参照 [南京大学《数字逻辑与计算机组成》课程实验](https://nju-projectn.github.io/dlco-lecture-note/index.html)
 > 的页面组成：**首页（任务清单）+ 每个任务独立页面**；每个任务页含目标 / 内容 / 关键代码 / 待操作代码 / 验收 / 参考。

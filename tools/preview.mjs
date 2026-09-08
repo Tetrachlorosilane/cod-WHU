@@ -124,7 +124,7 @@ function shell(title, bodyHtml, relPrefix) {
   return `<!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(title)} — 计算机组成原理实践任务（Chisel 版）</title>
+<title>${esc(title)} — 计算机组成原理实践任务4Chisel</title>
 <style>
   :root { --fg:#1f2328; --muted:#59636e; --line:#d1d9e0; --bg:#fff; --side:#f6f8fa; --link:#0969da; }
   * { box-sizing: border-box; }
@@ -157,7 +157,7 @@ function shell(title, bodyHtml, relPrefix) {
 </style></head>
 <body><div class="wrap">
 <aside>
-  <h1>计算机组成原理实践任务</h1>
+  <h1>计算机组成原理实践任务4Chisel</h1>
   <p>Chisel 版 ｜ 页面组成参照 NJU dlco-lecture-note</p>
   <ol>
 ${nav}
