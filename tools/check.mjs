@@ -6,8 +6,8 @@
 //
 // 检查项：
 //   1. 23 个实践任务子目录齐备，各含 index.md；
-//   2. code/ 软链接（junction）可解析到 taskvscode/expN/code；
-//   3. chisel/ 软链接可解析（exp5~exp23 应有，exp1~4 不应有）；
+//   2. code/ 目录存在且可枚举（本站收录的原 Verilog 源码子集）；
+//   3. chisel/ 目录存在（exp5~exp23 应有，exp1~4 不应有）；
 //   4. index.md 内**全部相对链接可达**（文件/目录存在；#Lxx 锚点忽略）；
 //   5. 代码块开围栏一律带语言标签；
 //   6. 页面声明的「待操作代码 N 处」与实际渲染出的待操作小节数一致；
@@ -52,16 +52,16 @@ function checkTask(n) {
     if (!text.includes(sec)) fail(where, `缺小节 ${sec}`);
   }
 
-  // 软链接
+  // code/ 与 chisel/ 目录
   const codeDir = join(dir, 'code');
   const chiselDir = join(dir, 'chisel');
-  if (!resolvable(codeDir)) fail(where, 'code/ 软链接缺失或不可解析');
+  if (!resolvable(codeDir)) fail(where, 'code/ 目录缺失或不可枚举');
   else {
     try { readdirSync(codeDir); } catch { fail(where, 'code/ 不可枚举'); }
   }
   const shouldHaveChisel = n >= 5;
   const hasChisel = resolvable(chiselDir);
-  if (shouldHaveChisel && !hasChisel) fail(where, 'chisel/ 软链接缺失或不可解析（exp5 起应有）');
+  if (shouldHaveChisel && !hasChisel) fail(where, 'chisel/ 目录缺失或不可枚举（exp5 起应有）');
   if (!shouldHaveChisel && hasChisel) fail(where, 'exp1~4 不应有 chisel/');
 
   // 链接可达性
