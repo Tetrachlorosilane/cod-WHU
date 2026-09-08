@@ -1,17 +1,24 @@
 # GitHub Pages / Jekyll 配置
 # 页面组成参照 NJU dlco-lecture-note（Sphinx + Read the Docs 主题）：
 # 首页列任务清单，每个任务独立页面，页面内有标题/目标/内容/代码/验收/参考。
+#
+# 本站采用 just-the-docs 的侧边栏文档布局（remote_theme）：
+#   侧边栏抬头取自下面的 title；
+#   侧边导航取自各 .md 的 front matter（layout/title/parent/nav_order）。
 title: 计算机组成原理实践任务4Chisel
-description: 实践任务说明 + 关键代码 + 待操作代码（软链接到 taskvscode）
+description: 实践任务说明 + 关键代码 + 待操作代码
 lang: zh-CN
 markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
 
-
+# 侧边栏文档布局（需要 jekyll-remote-theme，GitHub Pages 支持）
 remote_theme: just-the-docs/just-the-docs
 plugins:
   - jekyll-remote-theme
 search_enabled: false
 nav_sort: case_insensitive
+
+# 备选（零依赖的 GitHub Pages 白名单主题，无侧边栏导航）：
+# theme: jekyll-theme-minimal
