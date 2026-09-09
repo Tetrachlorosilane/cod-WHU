@@ -18,6 +18,7 @@ nav_order: 0
 ## 导航
 
 - 实践任务：见下方清单（每个任务一页）
+- [Chisel 入门教程（黄治豪）](https://zihaojf.github.io/Chisel-/chisel/%E7%AE%80%E4%BB%8B/) ｜ [工作流指南](工作流指南.md)
 - [附录](附录/index.md) ｜ [来源与许可](附录/来源与许可.md) ｜ [子页索引](附录/子页索引.md)
 
 ## 实践任务清单
