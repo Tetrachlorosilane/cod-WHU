@@ -1,15 +1,19 @@
 ---
 layout: default
 title: 实践任务1 · 跑马灯
-nav_title: 实践任务1 跑马灯
 nav_order: 1
+exp: 1
+exp_intent: Verilog 版（Chisel 改写自 exp5 起）
+exp_todos: 0
+exp_has_chisel: false
+exp_orig_judge: 见原任务说明
+exp_judge: 上板观察 LED 流水；testbench 仿真波形
+exp_needs_assets: false
 ---
 
 # 实践任务1：跑马灯
 
-[← 返回首页](../index.md) ｜ [原任务说明](task.md) ｜ [Chisel 环境说明](../index.md)
-
-> **任务类型**：Verilog 版（Chisel 改写自 exp5 起）
+{% include exp-nav.html %}
 
 ## 实验目标
 
@@ -144,18 +148,10 @@ endmodule
 
 ## 实验验收
 
-| 项 | 说明 |
-|---|---|
-| 原实验判据 | 见原任务说明 |
-| Chisel 版判据 | 上板观察 LED 流水；testbench 仿真波形 |
-| 运行方式 | 见原任务说明（Vivado 仿真） |
+{% include exp-accept.html %}
 
 ## 参考
 
-- 原任务说明：[`task.md`](task.md)
-- 教材：[《CPU 设计实战：LoongArch 版》](https://bookdown.org/loongson/_book3/)（汪文祥、邢金璋 等著）
-- Chisel 写法参考：[Verilog to Chisel（黄治豪）](https://zihaojf.github.io/Chisel-/chisel/%E7%AE%80%E4%BB%8B/)
+{% include exp-refs.html %}
 
----
-
-[实践任务2 →](../exp2/index.md)
+{% include exp-pager.html %}

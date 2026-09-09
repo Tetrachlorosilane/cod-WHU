@@ -1,0 +1,147 @@
+# 站点导航数据（由 tools/build_site.mjs 生成，勿手改）
+exps:
+  - n: 1
+    label: 实践任务1 跑马灯
+    title: 实践任务1 · 跑马灯
+    url: /exp1/
+    tag: Verilog
+    has_chisel: false
+  - n: 2
+    label: 实践任务2 寄存器堆
+    title: 实践任务2 · 寄存器堆仿真
+    url: /exp2/
+    tag: Verilog
+    has_chisel: false
+  - n: 3
+    label: 实践任务3 同步/异步 RAM
+    title: 实践任务3 · 同步 RAM 和异步 RAM 仿真、综合与实现
+    url: /exp3/
+    tag: Verilog
+    has_chisel: false
+  - n: 4
+    label: 实践任务4 数字逻辑电路
+    title: 实践任务4 · 数字逻辑电路的设计与调试
+    url: /exp4/
+    tag: Verilog
+    has_chisel: false
+  - n: 5
+    label: 实践任务5 5 条指令单周期
+    title: 实践任务5 · 5 条指令单周期 CPU
+    url: /exp5/
+    tag: Chisel · 填空
+    has_chisel: true
+  - n: 6
+    label: 实践任务6 20 条指令单周期
+    title: 实践任务6 · 20 条指令单周期 CPU
+    url: /exp6/
+    tag: Chisel · 找错
+    has_chisel: true
+  - n: 7
+    label: 实践任务7 简单流水线
+    title: 实践任务7 · 不考虑相关冲突处理的简单流水线 CPU
+    url: /exp7/
+    tag: Chisel · 从零实现
+    has_chisel: true
+  - n: 8
+    label: 实践任务8 阻塞解决冲突
+    title: 实践任务8 · 阻塞技术解决相关引发的冲突
+    url: /exp8/
+    tag: Chisel · 从零实现
+    has_chisel: true
+  - n: 9
+    label: 实践任务9 前递解决冲突
+    title: 实践任务9 · 前递技术解决相关引发的冲突
+    url: /exp9/
+    tag: Chisel · 从零实现
+    has_chisel: true
+  - n: 10
+    label: 实践任务10 算术/乘除指令
+    title: 实践任务10 · 算术逻辑运算指令和乘除法运算指令添加
+    url: /exp10/
+    tag: Chisel · 从零实现
+    has_chisel: true
+  - n: 11
+    label: 实践任务11 转移/访存指令
+    title: 实践任务11 · 转移指令和访存指令添加
+    url: /exp11/
+    tag: Chisel · 从零实现
+    has_chisel: true
+  - n: 12
+    label: 实践任务12 系统调用异常
+    title: 实践任务12 · 添加系统调用异常支持
+    url: /exp12/
+    tag: Chisel · 从零实现
+    has_chisel: true
+  - n: 13
+    label: 实践任务13 其它异常
+    title: 实践任务13 · 添加其它异常支持
+    url: /exp13/
+    tag: Chisel · 从零实现
+    has_chisel: true
+  - n: 14
+    label: 实践任务14 类 SRAM 总线
+    title: 实践任务14 · 添加类 SRAM 总线支持
+    url: /exp14/
+    tag: Chisel · 从零实现
+    has_chisel: true
+  - n: 15
+    label: 实践任务15 AXI 总线
+    title: 实践任务15 · 添加 AXI 总线支持
+    url: /exp15/
+    tag: Chisel · 从零实现
+    has_chisel: true
+  - n: 16
+    label: 实践任务16 AXI 随机延迟
+    title: 实践任务16 · 完成 AXI 随机延迟验证
+    url: /exp16/
+    tag: Chisel · 从零实现
+    has_chisel: true
+  - n: 17
+    label: 实践任务17 TLB 模块
+    title: 实践任务17 · TLB 模块设计
+    url: /exp17/
+    tag: Chisel · 从零实现（模块级）
+    has_chisel: true
+  - n: 18
+    label: 实践任务18 TLB 指令/CSR
+    title: 实践任务18 · 添加 TLB 相关指令和 CSR 寄存器
+    url: /exp18/
+    tag: Chisel · 从零实现
+    has_chisel: true
+  - n: 19
+    label: 实践任务19 TLB 例外
+    title: 实践任务19 · 添加 TLB 相关例外支持
+    url: /exp19/
+    tag: Chisel · 从零实现
+    has_chisel: true
+  - n: 20
+    label: 实践任务20 Cache 模块
+    title: 实践任务20 · Cache 模块设计
+    url: /exp20/
+    tag: Chisel · 从零实现（模块级）
+    has_chisel: true
+  - n: 21
+    label: 实践任务21 集成 ICache
+    title: 实践任务21 · 在 CPU 中集成 ICache
+    url: /exp21/
+    tag: Chisel · 从零实现
+    has_chisel: true
+  - n: 22
+    label: 实践任务22 集成 DCache
+    title: 实践任务22 · CPU 中集成 DCache
+    url: /exp22/
+    tag: Chisel · 从零实现
+    has_chisel: true
+  - n: 23
+    label: 实践任务23 CACOP 指令
+    title: 实践任务23 · CPU 中添加 CACOP 指令
+    url: /exp23/
+    tag: Chisel · 从零实现
+    has_chisel: true
+appendix:
+  - label: 附录
+    url: /附录/
+  - label: 来源与许可
+    url: /附录/来源与许可.html
+  - label: 子页索引
+    url: /附录/子页索引.html

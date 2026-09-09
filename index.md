@@ -22,29 +22,9 @@ nav_order: 0
 
 ## 实践任务清单
 
-1. [实践任务1 跑马灯](exp1/index.md) — Verilog
-2. [实践任务2 寄存器堆仿真](exp2/index.md) — Verilog
-3. [实践任务3 同步 RAM 和异步 RAM 仿真、综合与实现](exp3/index.md) — Verilog
-4. [实践任务4 数字逻辑电路的设计与调试](exp4/index.md) — Verilog
-5. [实践任务5 5 条指令单周期 CPU](exp5/index.md) — Chisel · 填空
-6. [实践任务6 20 条指令单周期 CPU](exp6/index.md) — Chisel · 找错
-7. [实践任务7 不考虑相关冲突处理的简单流水线 CPU](exp7/index.md) — Chisel · 从零实现
-8. [实践任务8 阻塞技术解决相关引发的冲突](exp8/index.md) — Chisel · 从零实现
-9. [实践任务9 前递技术解决相关引发的冲突](exp9/index.md) — Chisel · 从零实现
-10. [实践任务10 算术逻辑运算指令和乘除法运算指令添加](exp10/index.md) — Chisel · 从零实现
-11. [实践任务11 转移指令和访存指令添加](exp11/index.md) — Chisel · 从零实现
-12. [实践任务12 添加系统调用异常支持](exp12/index.md) — Chisel · 从零实现
-13. [实践任务13 添加其它异常支持](exp13/index.md) — Chisel · 从零实现
-14. [实践任务14 添加类 SRAM 总线支持](exp14/index.md) — Chisel · 从零实现
-15. [实践任务15 添加 AXI 总线支持](exp15/index.md) — Chisel · 从零实现
-16. [实践任务16 完成 AXI 随机延迟验证](exp16/index.md) — Chisel · 从零实现
-17. [实践任务17 TLB 模块设计](exp17/index.md) — Chisel · 从零实现（模块级）
-18. [实践任务18 添加 TLB 相关指令和 CSR 寄存器](exp18/index.md) — Chisel · 从零实现
-19. [实践任务19 添加 TLB 相关例外支持](exp19/index.md) — Chisel · 从零实现
-20. [实践任务20 Cache 模块设计](exp20/index.md) — Chisel · 从零实现（模块级）
-21. [实践任务21 在 CPU 中集成 ICache](exp21/index.md) — Chisel · 从零实现
-22. [实践任务22 CPU 中集成 DCache](exp22/index.md) — Chisel · 从零实现
-23. [实践任务23 CPU 中添加 CACOP 指令](exp23/index.md) — Chisel · 从零实现
+{% for item in site.data.nav.exps %}
+{{ forloop.index }}. [{{ item.label }}]({{ item.url | relative_url }}) — {{ item.tag }}
+{% endfor %}
 
 ## 目录约定
 

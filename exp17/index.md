@@ -1,15 +1,19 @@
 ---
 layout: default
 title: 实践任务17 · TLB 模块设计
-nav_title: 实践任务17 TLB 模块设计
 nav_order: 17
+exp: 17
+exp_intent: 从零实现（模块级）
+exp_todos: 4
+exp_has_chisel: true
+exp_orig_judge: `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`
+exp_judge: TlbSpec：16 写 / 16 读 / 26 查 → ----PASS!!!
+exp_needs_assets: false
 ---
 
 # 实践任务17：TLB 模块设计
 
-[← 返回首页](../index.md) ｜ [原任务说明](task.md) ｜ [Chisel 环境说明](chisel/README.md)
-
-> **任务类型**：从零实现（模块级） ｜ **待操作代码**：4 处
+{% include exp-nav.html %}
 
 ## 实验目标
 
@@ -340,20 +344,10 @@ class TlbTop(
 
 ## 实验验收
 
-| 项 | 说明 |
-|---|---|
-| 原实验判据 | `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!` |
-| Chisel 版判据 | TlbSpec：16 写 / 16 读 / 26 查 → ----PASS!!! |
-| 运行方式 | `cd chisel && ./mill chisel.test`（需 JDK 17 + Mill） |
-| 运行准备 | 无需额外文件，直接运行即可 |
+{% include exp-accept.html %}
 
 ## 参考
 
-- 原任务说明：[`task.md`](task.md)
-- Chisel 环境说明：[`chisel/README.md`](chisel/README.md)（文件清单 / 步骤 / 判据）
-- 教材：[《CPU 设计实战：LoongArch 版》](https://bookdown.org/loongson/_book3/)（汪文祥、邢金璋 等著）
-- Chisel 写法参考：[Verilog to Chisel（黄治豪）](https://zihaojf.github.io/Chisel-/chisel/%E7%AE%80%E4%BB%8B/)
+{% include exp-refs.html %}
 
----
-
-[← 实践任务16](../exp16/index.md) ｜ [实践任务18 →](../exp18/index.md)
+{% include exp-pager.html %}

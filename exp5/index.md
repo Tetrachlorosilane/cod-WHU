@@ -1,15 +1,19 @@
 ---
 layout: default
 title: 实践任务5 · 5 条指令单周期 CPU
-nav_title: 实践任务5 5 条指令单周期 CPU
 nav_order: 5
+exp: 5
+exp_intent: 填空
+exp_todos: 9
+exp_has_chisel: true
+exp_orig_judge: `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`
+exp_judge: MinicpuTopSpec：led = ~f(n) 断言
+exp_needs_assets: false
 ---
 
 # 实践任务5：5 条指令单周期 CPU
 
-[← 返回首页](../index.md) ｜ [原任务说明](task.md) ｜ [Chisel 环境说明](chisel/README.md)
-
-> **任务类型**：填空 ｜ **待操作代码**：9 处
+{% include exp-nav.html %}
 
 ## 实验目标
 
@@ -523,20 +527,10 @@ class SocMiniTop(
 
 ## 实验验收
 
-| 项 | 说明 |
-|---|---|
-| 原实验判据 | `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!` |
-| Chisel 版判据 | MinicpuTopSpec：led = ~f(n) 断言 |
-| 运行方式 | `cd chisel && ./mill chisel.test`（需 JDK 17 + Mill） |
-| 运行准备 | 无需额外文件，直接运行即可 |
+{% include exp-accept.html %}
 
 ## 参考
 
-- 原任务说明：[`task.md`](task.md)
-- Chisel 环境说明：[`chisel/README.md`](chisel/README.md)（文件清单 / 步骤 / 判据）
-- 教材：[《CPU 设计实战：LoongArch 版》](https://bookdown.org/loongson/_book3/)（汪文祥、邢金璋 等著）
-- Chisel 写法参考：[Verilog to Chisel（黄治豪）](https://zihaojf.github.io/Chisel-/chisel/%E7%AE%80%E4%BB%8B/)
+{% include exp-refs.html %}
 
----
-
-[← 实践任务4](../exp4/index.md) ｜ [实践任务6 →](../exp6/index.md)
+{% include exp-pager.html %}

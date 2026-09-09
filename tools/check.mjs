@@ -85,8 +85,8 @@ function checkTask(n) {
   }
   if (open) fail(where, '代码块围栏未闭合');
 
-  // 待操作代码数量一致性
-  const declared = text.match(/待操作代码\*\*：\s*(\d+)\s*处/);
+  // 待操作代码数量一致性（数量优先取 front matter 的 exp_todos；版式已交给 _includes）
+  const declared = text.match(/^exp_todos:\s*(\d+)\s*$/m) || text.match(/待操作代码\*\*：\s*(\d+)\s*处/);
   const rendered = (text.match(/^### 待操作：/gm) || []).length;
   if (declared) {
     const want = Number(declared[1]);
@@ -101,8 +101,19 @@ function checkIndex() {
   const page = join(SITE, 'index.md');
   if (!existsSync(page)) { fail('站点根', '缺少 index.md'); return; }
   const text = readFileSync(page, 'utf8');
-  for (let n = 1; n <= 23; n++) {
-    if (!text.includes(`(exp${n}/index.md)`)) fail('站点根', `首页未链接 exp${n}`);
+  // 首页清单若由 Liquid 循环 _data/nav.yml 渲染，则改为校验数据文件
+  if (/\{%\s*for item in site\.data\.nav\.exps\s*%\}/.test(text)) {
+    const dataFile = join(SITE, '_data', 'nav.yml');
+    if (!existsSync(dataFile)) { fail('站点根', '缺少 _data/nav.yml（首页清单数据源）'); return; }
+    const data = readFileSync(dataFile, 'utf8');
+    for (let n = 1; n <= 23; n++) {
+      if (!data.includes(`url: /exp${n}/`)) fail('站点根', `_data/nav.yml 未包含 exp${n}`);
+      if (!existsSync(join(SITE, `exp${n}`, 'index.md'))) fail('站点根', `exp${n}/index.md 不存在`);
+    }
+  } else {
+    for (let n = 1; n <= 23; n++) {
+      if (!text.includes(`(exp${n}/index.md)`)) fail('站点根', `首页未链接 exp${n}`);
+    }
   }
   const links = [...text.matchAll(/\]\(([^)\s]+)\)/g)].map(m => m[1]);
   for (const raw of links) {
