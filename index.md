@@ -16,6 +16,11 @@ nav_order: 0
 | [Verilog to Chisel（黄治豪）](https://zihaojf.github.io/Chisel-/chisel/%E7%AE%80%E4%BB%8B/) | Chisel 入门与五级流水线写法参考 |
 | [CPU 设计实战：LoongArch 版](https://bookdown.org/loongson/_book3/)（汪文祥、邢金璋 等著） | 实践任务与原始 Verilog 实验工程来源 |
 
+## 导航
+
+- 实践任务：见下方清单（每个任务一页）
+- [附录](附录/index.md) ｜ [来源与许可](附录/来源与许可.md) ｜ [子页索引](附录/子页索引.md)
+
 ## 实践任务清单
 
 1. [实践任务1 跑马灯](exp1/index.md) — Verilog
