@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 实践任务18 · 添加 TLB 相关指令和 CSR 寄存器
+title: '实践任务18 · 添加 TLB 相关指令和 CSR 寄存器'
 nav_order: 18
 exp: 18
-exp_intent: 从零实现
+exp_intent: '从零实现'
 exp_todos: 16
 exp_has_chisel: true
-exp_orig_judge: `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`
-exp_judge: TraceHarness：golden_trace 逐条比对
+exp_orig_judge: '`mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`'
+exp_judge: 'TraceHarness：golden_trace 逐条比对'
 exp_needs_assets: true
 ---
 

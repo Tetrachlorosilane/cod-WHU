@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 实践任务1 · 跑马灯
+title: '实践任务1 · 跑马灯'
 nav_order: 1
 exp: 1
-exp_intent: Verilog 版（Chisel 改写自 exp5 起）
+exp_intent: 'Verilog 版（Chisel 改写自 exp5 起）'
 exp_todos: 0
 exp_has_chisel: false
-exp_orig_judge: 见原任务说明
-exp_judge: 上板观察 LED 流水；testbench 仿真波形
+exp_orig_judge: '见原任务说明'
+exp_judge: '上板观察 LED 流水；testbench 仿真波形'
 exp_needs_assets: false
 ---
 

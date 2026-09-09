@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 实践任务16 · 完成 AXI 随机延迟验证
+title: '实践任务16 · 完成 AXI 随机延迟验证'
 nav_order: 16
 exp: 16
-exp_intent: 从零实现
+exp_intent: '从零实现'
 exp_todos: 15
 exp_has_chisel: true
-exp_orig_judge: `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`
-exp_judge: TraceHarness：随机延迟下 golden_trace 逐条比对
+exp_orig_judge: '`mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`'
+exp_judge: 'TraceHarness：随机延迟下 golden_trace 逐条比对'
 exp_needs_assets: true
 ---
 

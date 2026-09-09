@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 实践任务9 · 前递技术解决相关引发的冲突
+title: '实践任务9 · 前递技术解决相关引发的冲突'
 nav_order: 9
 exp: 9
-exp_intent: 从零实现
+exp_intent: '从零实现'
 exp_todos: 10
 exp_has_chisel: true
-exp_orig_judge: `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`
-exp_judge: TraceHarness：trace 逐条比对 + 周期数下降
+exp_orig_judge: '`mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`'
+exp_judge: 'TraceHarness：trace 逐条比对 + 周期数下降'
 exp_needs_assets: true
 ---
 

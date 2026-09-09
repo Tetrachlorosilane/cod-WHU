@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 实践任务3 · 同步 RAM 和异步 RAM 仿真、综合与实现
+title: '实践任务3 · 同步 RAM 和异步 RAM 仿真、综合与实现'
 nav_order: 3
 exp: 3
-exp_intent: Verilog 版（Chisel 改写自 exp5 起）
+exp_intent: 'Verilog 版（Chisel 改写自 exp5 起）'
 exp_todos: 0
 exp_has_chisel: false
-exp_orig_judge: 见原任务说明
-exp_judge: ram_tb 仿真通过 + 综合实现报告
+exp_orig_judge: '见原任务说明'
+exp_judge: 'ram_tb 仿真通过 + 综合实现报告'
 exp_needs_assets: false
 ---
 

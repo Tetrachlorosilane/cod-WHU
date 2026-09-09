@@ -1,21 +1,19 @@
 ---
 layout: default
-title: 实践任务7 · 不考虑相关冲突处理的简单流水线 CPU
+title: '实践任务7 · 不考虑相关冲突处理的简单流水线 CPU'
 nav_order: 7
 exp: 7
-exp_intent: 从零实现
+exp_intent: '从零实现'
 exp_todos: 9
 exp_has_chisel: true
-exp_orig_judge: `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`
-exp_judge: TraceHarness：golden_trace 逐条比对 + num_data 监视
+exp_orig_judge: '`mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`'
+exp_judge: 'TraceHarness：golden_trace 逐条比对 + num_data 监视'
 exp_needs_assets: true
 ---
 
 # 实践任务7：不考虑相关冲突处理的简单流水线 CPU
 
 {% include exp-nav.html %}
-
-<!--DEBUG page={{ page | jsonify }}-->
 
 ## 实验目标
 

@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 实践任务2 · 寄存器堆仿真
+title: '实践任务2 · 寄存器堆仿真'
 nav_order: 2
 exp: 2
-exp_intent: Verilog 版（Chisel 改写自 exp5 起）
+exp_intent: 'Verilog 版（Chisel 改写自 exp5 起）'
 exp_todos: 0
 exp_has_chisel: false
-exp_orig_judge: 见原任务说明
-exp_judge: rf_tb 仿真通过
+exp_orig_judge: '见原任务说明'
+exp_judge: 'rf_tb 仿真通过'
 exp_needs_assets: false
 ---
 

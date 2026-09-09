@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 实践任务6 · 20 条指令单周期 CPU
+title: '实践任务6 · 20 条指令单周期 CPU'
 nav_order: 6
 exp: 6
-exp_intent: 找错
+exp_intent: '找错'
 exp_todos: 7
 exp_has_chisel: true
-exp_orig_judge: `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`
-exp_judge: MyCpuTbSpec：golden_trace 逐条比对（9776 条）
+exp_orig_judge: '`mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`'
+exp_judge: 'MyCpuTbSpec：golden_trace 逐条比对（9776 条）'
 exp_needs_assets: true
 ---
 

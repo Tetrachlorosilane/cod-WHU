@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 实践任务8 · 阻塞技术解决相关引发的冲突
+title: '实践任务8 · 阻塞技术解决相关引发的冲突'
 nav_order: 8
 exp: 8
-exp_intent: 从零实现
+exp_intent: '从零实现'
 exp_todos: 10
 exp_has_chisel: true
-exp_orig_judge: `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`
-exp_judge: TraceHarness：golden_trace 逐条比对
+exp_orig_judge: '`mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`'
+exp_judge: 'TraceHarness：golden_trace 逐条比对'
 exp_needs_assets: true
 ---
 

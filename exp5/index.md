@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 实践任务5 · 5 条指令单周期 CPU
+title: '实践任务5 · 5 条指令单周期 CPU'
 nav_order: 5
 exp: 5
-exp_intent: 填空
+exp_intent: '填空'
 exp_todos: 9
 exp_has_chisel: true
-exp_orig_judge: `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`
-exp_judge: MinicpuTopSpec：led = ~f(n) 断言
+exp_orig_judge: '`mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`'
+exp_judge: 'MinicpuTopSpec：led = ~f(n) 断言'
 exp_needs_assets: false
 ---
 

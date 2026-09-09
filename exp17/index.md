@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 实践任务17 · TLB 模块设计
+title: '实践任务17 · TLB 模块设计'
 nav_order: 17
 exp: 17
-exp_intent: 从零实现（模块级）
+exp_intent: '从零实现（模块级）'
 exp_todos: 4
 exp_has_chisel: true
-exp_orig_judge: `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`
-exp_judge: TlbSpec：16 写 / 16 读 / 26 查 → ----PASS!!!
+exp_orig_judge: '`mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`'
+exp_judge: 'TlbSpec：16 写 / 16 读 / 26 查 → ----PASS!!!'
 exp_needs_assets: false
 ---
 

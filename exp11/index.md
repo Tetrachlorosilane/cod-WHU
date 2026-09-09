@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 实践任务11 · 转移指令和访存指令添加
+title: '实践任务11 · 转移指令和访存指令添加'
 nav_order: 11
 exp: 11
-exp_intent: 从零实现
+exp_intent: '从零实现'
 exp_todos: 10
 exp_has_chisel: true
-exp_orig_judge: `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`
-exp_judge: TraceHarness：golden_trace 逐条比对
+exp_orig_judge: '`mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`'
+exp_judge: 'TraceHarness：golden_trace 逐条比对'
 exp_needs_assets: true
 ---
 

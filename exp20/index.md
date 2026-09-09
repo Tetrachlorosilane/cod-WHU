@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 实践任务20 · Cache 模块设计
+title: '实践任务20 · Cache 模块设计'
 nav_order: 20
 exp: 20
-exp_intent: 从零实现（模块级）
+exp_intent: '从零实现（模块级）'
 exp_todos: 5
 exp_has_chisel: true
-exp_orig_judge: `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`
-exp_judge: CacheSpec：index 0→0xff 先写后读 → ----PASS!!!
+exp_orig_judge: '`mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`'
+exp_judge: 'CacheSpec：index 0→0xff 先写后读 → ----PASS!!!'
 exp_needs_assets: false
 ---
 

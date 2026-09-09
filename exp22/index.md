@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 实践任务22 · CPU 中集成 DCache
+title: '实践任务22 · CPU 中集成 DCache'
 nav_order: 22
 exp: 22
-exp_intent: 从零实现
+exp_intent: '从零实现'
 exp_todos: 19
 exp_has_chisel: true
-exp_orig_judge: `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`
-exp_judge: TraceHarness：golden_trace 逐条比对
+exp_orig_judge: '`mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`'
+exp_judge: 'TraceHarness：golden_trace 逐条比对'
 exp_needs_assets: true
 ---
 

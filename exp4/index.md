@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 实践任务4 · 数字逻辑电路的设计与调试
+title: '实践任务4 · 数字逻辑电路的设计与调试'
 nav_order: 4
 exp: 4
-exp_intent: Verilog 版（Chisel 改写自 exp5 起）
+exp_intent: 'Verilog 版（Chisel 改写自 exp5 起）'
 exp_todos: 0
 exp_has_chisel: false
-exp_orig_judge: 见原任务说明
-exp_judge: tb 仿真通过 + 上板
+exp_orig_judge: '见原任务说明'
+exp_judge: 'tb 仿真通过 + 上板'
 exp_needs_assets: false
 ---
 

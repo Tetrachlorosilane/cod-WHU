@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 实践任务21 · 在 CPU 中集成 ICache
+title: '实践任务21 · 在 CPU 中集成 ICache'
 nav_order: 21
 exp: 21
-exp_intent: 从零实现
+exp_intent: '从零实现'
 exp_todos: 18
 exp_has_chisel: true
-exp_orig_judge: `mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`
-exp_judge: TraceHarness：golden_trace 逐条比对
+exp_orig_judge: '`mycpu_tb.v` 与 `gettrace/golden_trace.txt` 逐条比对，到达 END_PC 打印 `----PASS!!!`'
+exp_judge: 'TraceHarness：golden_trace 逐条比对'
 exp_needs_assets: true
 ---
 
