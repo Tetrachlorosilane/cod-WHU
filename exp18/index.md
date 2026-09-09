@@ -22,7 +22,18 @@ exp_needs_assets: true
 3. 在 CPU 中增加 `TLBIDX`、`TLBEHI`、`TLBELO0`、`TLBELO1`、`ASID`、`TLBRENTRY` CSR 寄存器；
 4. 在采用 AXI 总线的 SoC 验证环境里完成 exp18 对应 func（n1~n70）的功能验证。
 
+## 提示与易错点
+
+> **💡 概念**：`tlbsrch`/`tlbrd`/`tlbwr`/`tlbfill` 都是通过 CSR.TLBIDX/TLBEHI/TLBELO/TLBPV 间接操作 TLB 表项。
+>
+> **⚠️ 易错**：`tlbsrch` 的匹配条件包含 asid（除非该页 G = 1）；只比 vppn 会搜到错误的表项。
+>
+> **⚠️ 易错**：`tlbwr` 与 `tlbfill` 的区别在索引来源：前者用 CSR.TLBIDX.index，后者用随机替换。
+>
+
 ## 关键代码
+
+下面给出本实验的接口骨架与环境代码。请**先读懂注释里的接口约定**再动手：接口理解错，后面的调试会非常费时。
 
 ### `MyCpuTop.scala`（学生模块接口骨架）
 
@@ -109,6 +120,8 @@ class SocLiteTop(
 ```
 
 ## 待操作代码（TODO）
+
+下表列出本实验全部需要补全的位置，每处都附了上下文。请对照教材与本实验的 `chisel/README.md` 逐项完成。
 
 共 **16** 处，全部位于学生模块中；下表为索引，代码块给出每处的上下文。
 
@@ -369,6 +382,8 @@ class SocLiteTop(
 ```
 
 ## 实验验收
+
+完成后按下面的判据自检——能复现原实验的验收条件，才算真正完成。
 
 {% include exp-accept.html %}
 

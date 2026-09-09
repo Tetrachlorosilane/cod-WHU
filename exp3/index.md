@@ -31,7 +31,18 @@ exp_needs_assets: false
 12. 点击“Add Sources”，选择添加仿真源码（simulation sources），加入ram\_tb.v。
 13. 参考附录[D](https://bookdown.org/loongson/_book3/appendix-vivado-advanced-usage.html#appendix-vivado-advanced-usage)第[D.1](https://bookdown.org/loongson/_book3/appendix-vivado-advanced-usage.html#sec-vivado-generate-ram-ip)节，调用Xilinx库IP生成异步RAM（Distributed RAM，深度为65536，宽度为32）。
 
+## 提示与易错点
+
+> **💡 概念**：同步 RAM 的读数据比地址**晚一拍**（地址在时钟沿锁存、数据下一拍输出）；异步 RAM 是组合输出，地址一变数据就变。
+>
+> **⚠️ 易错**：把同步 RAM 当组合读用是后续流水线实验最常见的坑：取指级会拿到上一条指令的地址。
+>
+> **⚠️ 易错**：写使能位宽（1 位整体使能 vs 4 位字节使能）要与原工程接口一致，否则端口对不上。
+>
+
 ## 关键代码
+
+下面给出本实验的接口骨架与环境代码。请**先读懂注释里的接口约定**再动手：接口理解错，后面的调试会非常费时。
 
 ### `block_ram_top.v`
 
@@ -160,9 +171,13 @@ begin
 
 ## 待操作代码（TODO）
 
+下表列出本实验全部需要补全的位置，每处都附了上下文。请对照教材与本实验的 `chisel/README.md` 逐项完成。
+
 > 本任务是 Verilog 版实验（Chisel 改写自 exp5 起），待操作内容见 [原任务说明](task.md)。
 
 ## 实验验收
+
+完成后按下面的判据自检——能复现原实验的验收条件，才算真正完成。
 
 {% include exp-accept.html %}
 
