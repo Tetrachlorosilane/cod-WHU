@@ -13,15 +13,18 @@
 cod-WHU.github.io/
 ├── index.md                  # 首页：23 个实践任务清单
 ├── README.md                 # 本文件
-├── LICENSE-NOTICE.md         # 来源与许可说明
 ├── 404.md                    # 404 页面
 ├── _config.yml               # GitHub Pages / Jekyll 配置
 ├── .gitignore / .gitattributes
-├── CHISEL-CONVENTIONS.md     # Chisel 改写规范（含术语表 / 核验记录 / 自检）
+├── 附录/                     # 附录页（来源与许可 / 子页索引）
+├── assets/                   # 仿真运行件包（sim-assets.tar.gz 13.6MB + sha256 清单）
+├── _agent/                   # agent/过程文档（改写规范、对标审计、复查报告）—— .gitignore 忽略，不入库
 ├── chisel-common/            # 共享环境库（exp7~exp23 的 chisel/ 通过 ../../chisel-common/ 引用）
 ├── tools/
 │   ├── preview.mjs           # 本地预览服务（零依赖，渲染 markdown 并带侧边栏）
-│   └── check.mjs             # 站点自检（目录 / 链接 / 代码块 / 待操作计数）
+│   ├── check.mjs             # 站点自检（目录 / 链接 / 代码块 / 待操作计数）
+│   ├── unpack-assets.mjs     # 解包 assets/sim-assets.tar.gz（零依赖）
+│   └── tarlib.mjs            # 自带的 tar+gzip 读写库
 ├── exp1/
 │   ├── index.md              # 实践任务页
 │   ├── task.md               # 原任务说明（改写为 Chisel 版）
@@ -121,5 +124,5 @@ node tools/check.mjs              # 自检：23 个任务页 / 全部相对链�
 
 ## 6. 来源与许可
 
-见 [LICENSE-NOTICE.md](LICENSE-NOTICE.md)。实践任务与原始 Verilog 代码来自
-《CPU 设计实战：LoongArch 版》配套实验工程；Chisel 版为本项目的对照改写（静态交付，未编译/未仿真）。
+见 [附录/来源与许可.md](附录/来源与许可.md)。实践任务与原始 Verilog 代码来自
+《CPU 设计实战：LoongArch 版》配套实验工程；Chisel 版为本项目的对照改写（已通过编译，未跑仿真）。

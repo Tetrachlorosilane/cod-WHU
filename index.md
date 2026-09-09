@@ -57,5 +57,5 @@ nav_order: 0
 ## 许可与来源
 
 - 实践任务与原始 Verilog 代码来源：《CPU 设计实战：LoongArch 版》（汪文祥、邢金璋 等著）配套实验工程。
-- Chisel 改写版：`exp5~exp23` 的 `chisel/`，改写规范见 [CHISEL-CONVENTIONS.md](CHISEL-CONVENTIONS.md)。
+- Chisel 改写版：`exp5~exp23` 的 `chisel/`（学生骨架 + 环境 + 测试）。
 - Chisel 写法参考：[Verilog to Chisel（黄治豪）](https://zihaojf.github.io/Chisel-/chisel/%E7%AE%80%E4%BB%8B/)。
