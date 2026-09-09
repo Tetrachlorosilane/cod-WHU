@@ -110,6 +110,13 @@ node tools/preview.mjs 9000       # 指定端口
 node tools/check.mjs              # 自检：23 个任务页 / 全部相对链接可达 / 代码块语言标签 / 待操作计数
 ```
 
+## 8. 分实验资料包（Release）
+
+每个实践任务都提供独立 zip（含该实验的代码、说明与仿真运行件），发布在
+<https://github.com/Tetrachlorosilane/cod-WHU/releases/latest>：解压后 `expN/` 与 `chisel-common/` 保持同级，
+在 `expN/chisel` 下执行 `../../../mill chisel.test` 即可运行。
+打包脚本为上游仓库的 `tools/pack_release.mjs`，上传脚本为 `tools/upload_release.mjs`。
+
 ## 5. 发布到 GitHub Pages
 
 本仓库地址：**https://github.com/Tetrachlorosilane/cod-WHU**（原名 `cod-WHU.github.io`，已改名）。
