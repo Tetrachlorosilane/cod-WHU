@@ -33,6 +33,44 @@ function resolvable(p) {
   try { statSync(p); readdirSync(p); return true; } catch { return false; }
 }
 
+// 判断文件是否会被 Jekyll 渲染（带 YAML front matter 的 markdown）
+function isRenderedPage(file) {
+  if (!/\.md$/i.test(file)) return false;
+  try { return /^---\r?\n/.test(readFileSync(file, 'utf8')); } catch { return false; }
+}
+
+// 内部链接检查：目标存在 + 指向被渲染页面时必须用 .html / 目录 URL
+function checkInternalLinks(baseDir, text, where, stats) {
+  const links = [...text.matchAll(/\]\(([^)\s]+)\)/g)].map((m) => m[1]);
+  for (const raw of links) {
+    if (/^(https?:|mailto:|#)/.test(raw)) continue;
+    const clean = raw.split('#')[0];
+    if (!clean) continue;
+    stats.links += 1;
+    let target = resolve(baseDir, clean);
+    // .html 链接：允许对应 .md 存在（Jekyll 会渲染成 .html）
+    if (!existsSync(target) && /.html$/i.test(clean)) {
+      const md = target.replace(/.html$/i, '.md');
+      if (existsSync(md)) target = md; else { fail(where, `链接不可达：${raw}`); continue; }
+    }
+    if (!existsSync(target)) { fail(where, `链接不可达：${raw}`); continue; }
+    // 目录链接：需要 index.md（会渲染成 index.html）
+    let st = null;
+    try { st = statSync(target); } catch { /* ignore */ }
+    if (st && st.isDirectory()) {
+      if (!existsSync(join(target, 'index.md')) && !existsSync(join(target, 'index.html'))) {
+        fail(where, `目录链接没有 index：${raw}`);
+      }
+      continue;
+    }
+    // 指向 .md 但该文件会被渲染 → 线上地址是 .html / 目录
+    if (/\.md$/i.test(clean) && isRenderedPage(target)) {
+      const hint = /(^|\/)index\.md$/i.test(clean) ? clean.replace(/index\.md$/i, '') : clean.replace(/\.md$/i, '.html');
+      fail(where, `链接指向 .md，但该页会被渲染：${raw} → 应写 ${hint}`);
+    }
+  }
+}
+
 function checkTask(n) {
   const dir = join(SITE, `exp${n}`);
   const page = join(dir, 'index.md');
@@ -64,16 +102,8 @@ function checkTask(n) {
   if (shouldHaveChisel && !hasChisel) fail(where, 'chisel/ 目录缺失或不可枚举（exp5 起应有）');
   if (!shouldHaveChisel && hasChisel) fail(where, 'exp1~4 不应有 chisel/');
 
-  // 链接可达性
-  const links = [...text.matchAll(/\]\(([^)\s]+)\)/g)].map(m => m[1]);
-  for (const raw of links) {
-    if (/^(https?:|mailto:|#)/.test(raw)) continue;
-    const clean = raw.split('#')[0];
-    if (!clean) continue;
-    stats.links += 1;
-    const target = resolve(dirname(page), clean);
-    if (!existsSync(target)) fail(where, `链接不可达：${raw}`);
-  }
+  // 链接可达性（含 .md 渲染检查）
+  checkInternalLinks(dirname(page), text, where, stats);
 
   // 代码块语言标签
   let open = false;
@@ -115,13 +145,7 @@ function checkIndex() {
       if (!text.includes(`(exp${n}/index.md)`)) fail('站点根', `首页未链接 exp${n}`);
     }
   }
-  const links = [...text.matchAll(/\]\(([^)\s]+)\)/g)].map(m => m[1]);
-  for (const raw of links) {
-    if (/^(https?:|mailto:|#)/.test(raw)) continue;
-    const clean = raw.split('#')[0];
-    if (!clean) continue;
-    if (!existsSync(resolve(SITE, clean))) fail('站点根', `链接不可达：${raw}`);
-  }
+  checkInternalLinks(SITE, text, '站点根', stats);
 }
 
 for (let n = 1; n <= 23; n++) checkTask(n);

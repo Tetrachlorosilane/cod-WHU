@@ -2,6 +2,6 @@
 |---|---|
 | 原实验判据 | {{ page.exp_orig_judge }} |
 | Chisel 版判据 | {{ page.exp_judge }} |
-| 运行方式 | {% if page.exp_has_chisel %}`cd chisel && ./mill chisel.test`（需 JDK 17 + Mill；配置见 [工作流指南](../工作流指南.md)）{% else %}见原任务说明（Vivado 仿真）{% endif %} |
+| 运行方式 | {% if page.exp_has_chisel %}`cd chisel && ./mill chisel.test`（需 JDK 17 + Mill；配置见 [工作流指南](../工作流指南.html)）{% else %}见原任务说明（Vivado 仿真）{% endif %} |
 {% if page.exp_needs_assets %}| 运行准备 | 先在仓库根执行 `node tools/unpack-assets.mjs` 解包仿真运行件（`.mif` / `golden_trace.txt`），否则测试会提示找不到文件 |
 {% endif %}
