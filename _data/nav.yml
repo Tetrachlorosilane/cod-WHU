@@ -1,4 +1,11 @@
 # 站点导航数据（由 tools/build_site.mjs 生成，勿手改）
+guides:
+  - label: Chisel 入门教程
+    url: https://zihaojf.github.io/Chisel-/chisel/%E7%AE%80%E4%BB%8B/
+    external: true
+  - label: 工作流指南
+    url: /工作流指南.html
+    external: false
 exps:
   - n: 1
     label: 实践任务1 跑马灯

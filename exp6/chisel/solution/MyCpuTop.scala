@@ -36,9 +36,9 @@ class MyCpuTop extends Module {
     val debug_wb_rf_wdata = Output(UInt(32.W))
   })
 
-  val reset = RegNext(!io.resetn, true.B)
+  val reset_r = RegNext(!io.resetn, true.B)
   val valid = RegInit(false.B)
-  when(reset) {
+  when(reset_r) {
     valid := false.B
   }.otherwise {
     valid := true.B
@@ -193,7 +193,7 @@ class MyCpuTop extends Module {
   io.debug_wb_rf_wnum  := dest
   io.debug_wb_rf_wdata := final_result
 
-  when(reset) {
+  when(reset_r) {
     pc := 0x1bfffffcL.U(32.W)
   }.otherwise {
     pc := nextpc

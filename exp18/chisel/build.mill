@@ -23,13 +23,18 @@ object chisel extends ScalaModule {
   // 故显式上移一级（见 https://mill-build.org/mill/1.0.x/fundamentals/modules.html#_moduledir）
   def moduleDir = super.moduleDir / os.up
 
-  def scalaVersion = "2.13.12"
+  def scalaVersion = "2.13.10"
 
   /** taskvscode/chisel-common（从 expN/chisel 往上两级） */
   def commonRoot = moduleDir / os.up / os.up / "chisel-common"
 
   def mvnDeps = Seq(
-    mvn"edu.berkeley.cs::chisel3:3.5.6"
+    mvn"edu.berkeley.cs::chisel3:3.6.0"
+  )
+
+  // Chisel 3.5 必须带编译器插件；缺它时能编译但 elaboration 会断言失败
+  def scalacPluginMvnDeps = Seq(
+    mvn"edu.berkeley.cs:::chisel3-plugin:3.6.0"
   )
 
   // Mill 1.x 用 Task.Sources（旧版 T.sources 在 1.x 已不存在，且沙箱要求显式声明来源）

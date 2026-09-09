@@ -39,9 +39,9 @@ class MinicpuTop extends Module {
     val data_sram_rdata = Input(UInt(32.W))
   })
 
-  val reset = RegNext(!io.resetn, true.B)
+  val reset_r = RegNext(!io.resetn, true.B)
   val valid = RegInit(false.B)
-  when(reset) {
+  when(reset_r) {
     valid := false.B
   }.otherwise {
     valid := true.B
@@ -137,7 +137,7 @@ class MinicpuTop extends Module {
   // 填空 9/9
   rf_wdata := Mux(res_from_mem, io.data_sram_rdata, alu_result)
 
-  when(reset) {
+  when(reset_r) {
     pc := 0x1bfffffcL.U(32.W)
   }.otherwise {
     pc := nextpc

@@ -26,7 +26,7 @@ xxx := ???
 
 1. 打开 `chisel/src/main/scala/student/MinicpuTop.scala`，按 `TODO(填空 1/9 … 9/9)` 逐个补全。
    每处 TODO 都标注了它在原 Verilog 中的位置（`code/miniCPU/minicpu_top.v:行号`）与原注释原文，
-2. 补全后运行 ChiselTest（已实测通过编译：Mill 1.0.4 + JDK 17 + Chisel 3.5.6；未跑仿真）：
+2. 补全后运行 ChiselTest（已实测通过编译：Mill 1.0.4 + JDK 17 + Chisel 3.6.0；未跑仿真）：
    ```bash
    cd chisel
    ./mill chisel.test

@@ -1,6 +1,14 @@
-<h2 class="nav-title">实践任务</h2>
 <ul class="nav-list">
   <li><a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active"{% endif %}>首页</a></li>
+</ul>
+<h2 class="nav-title">指南</h2>
+<ul class="nav-list">
+{%- for item in site.data.nav.guides %}
+  <li><a href="{% if item.external %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}"{% if item.external %} target="_blank" rel="noopener"{% endif %}{% if page.url == item.url %} class="active"{% endif %}>{{ item.label }}</a></li>
+{%- endfor %}
+</ul>
+<h2 class="nav-title">实践任务</h2>
+<ul class="nav-list">
 {%- for item in site.data.nav.exps %}
   <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} class="active"{% endif %}>{{ item.label }}</a></li>
 {%- endfor %}
