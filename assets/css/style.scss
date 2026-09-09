@@ -1,0 +1,77 @@
+---
+---
+/* 先导入 Cayman 主题，再追加/覆盖样式（Jekyll 会把本文件编译到 assets/css/style.css） */
+@import 'jekyll-theme-cayman';
+
+/* ---------- 两栏布局：左导航 + 右内容 ---------- */
+.site-layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+.site-sidebar {
+  flex: 0 0 15rem;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 2rem 1rem 3rem 1.5rem;
+  border-right: 1px solid #e8e8e8;
+  font-size: .875rem;
+  line-height: 1.6;
+  background: #fdfdfd;
+}
+
+.site-sidebar .nav-title {
+  margin: 1.25rem 0 .4rem;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #767676;
+}
+.site-sidebar .nav-title:first-child { margin-top: 0; }
+
+.site-sidebar .nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-sidebar .nav-list li { margin: .1rem 0; }
+.site-sidebar .nav-list a {
+  display: block;
+  padding: .2rem .4rem;
+  border-radius: .25rem;
+  color: #1e6bb8;
+  text-decoration: none;
+}
+.site-sidebar .nav-list a:hover { background: #f1f5fb; text-decoration: none; }
+.site-sidebar .nav-list a.active {
+  background: #e8f0fb;
+  color: #155799;
+  font-weight: 600;
+}
+
+/* 内容区：抵消 Cayman 的居中与超大左右内边距 */
+.site-layout .main-content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+  padding: 2rem 3rem 3rem;
+}
+
+/* ---------- 窄屏：侧边栏折到内容上方 ---------- */
+@media screen and (max-width: 52rem) {
+  .site-layout { display: block; }
+  .site-sidebar {
+    position: static;
+    max-height: none;
+    border-right: 0;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 1.25rem 1.5rem;
+  }
+  .site-sidebar .nav-list { columns: 2; }
+  .site-layout .main-content { padding: 1.5rem 1.5rem 3rem; }
+}
