@@ -15,6 +15,8 @@ exp_needs_assets: true
 
 {% include exp-nav.html %}
 
+<!--DEBUG page={{ page | jsonify }}-->
+
 ## 实验目标
 
 1. 调整 CPU 顶层接口，增加指令 RAM 片选 `inst_sram_en` 与数据 RAM 片选 `data_sram_en`。
