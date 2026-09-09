@@ -14,7 +14,12 @@ cod-WHU.github.io/
 ├── index.md                  # 首页：23 个实践任务清单
 ├── README.md                 # 本文件
 ├── 404.md                    # 404 页面
+├── 工作流指南.md             # Chisel→Verilog→仿真→上板 工作流配置指南（侧栏「指南」）
 ├── _config.yml               # GitHub Pages / Jekyll 配置
+├── _data/nav.yml             # 导航数据（侧栏 / 首页清单的唯一数据源）
+├── _includes/                # sidebar.html + 任务页片段（exp-nav/accept/refs/pager）
+├── _layouts/default.html     # 覆盖 Cayman 布局，加左侧导航栏
+├── assets/css/style.scss     # 覆盖主题样式（先 @import Cayman 再追加两栏布局）
 ├── .gitignore / .gitattributes
 ├── 附录/                     # 附录页（来源与许可 / 子页索引）
 ├── assets/                   # 仿真运行件包（sim-assets.tar.gz 13.6MB + sha256 清单）
@@ -118,8 +123,9 @@ node tools/check.mjs              # 自检：23 个任务页 / 全部相对链�
 > 若要改用根域名 `https://tetrachlorosilane.github.io/`，需要把仓库改名为
 > `Tetrachlorosilane.github.io`（或把内容迁到该仓库）。
 
-- `_config.yml` 使用 `remote_theme: just-the-docs/just-the-docs`（侧边栏文档布局，
-  最接近参考站点的观感）；侧边栏抬头取自 `title`，侧边导航取自各 `.md` 的 front matter。
+- `_config.yml` 使用 **Cayman**（`theme: jekyll-theme-cayman`，GitHub Pages 官方支持、零插件）；
+  左侧导航栏由仓库内 `_layouts/default.html` + `_includes/sidebar.html` + `assets/css/style.scss` 覆盖主题实现，
+  导航数据在 `_data/nav.yml`；任务页的重复版式由 `_includes/exp-*.html` 渲染。
 - 请**不要**添加 `.nojekyll`，否则 `.md` 不会渲染成页面。
 
 ## 6. 来源与许可
